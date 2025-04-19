@@ -1,0 +1,24 @@
+<odoo>
+  <!-- Inherit Form View to Modify it -->
+  <record id="create_approval_payment" model="res.groups">
+      <field name="name">Create Approval Payment</field>
+  </record>
+  <record id="approval_request_view_form_payment" model="ir.ui.view">
+      <field name="name">approval_request_view_form_payment</field>
+      <field name="model">approval.request</field>
+      <field name="inherit_id" ref="approvals.approval_request_view_form"/>
+      <field name="arch" type="xml">
+
+          <xpath expr="//header/button[last()]" position="after">
+            <button name="create_payment" type="object" string="Create PAyment" groups="approval_payment.create_approval_payment"/>
+              <!-- Add your fields or attributes here -->
+          </xpath>
+        <xpath expr="//button[@name='action_get_attachment_view']" position="after">
+                <button name="action_view_payment" type="object" class="oe_stat_button" icon="fa-credit-card" invisible="payment_count == 0">
+                    <field name="payment_count" string="Payments" widget="statinfo"/>
+                </button>
+            </xpath>
+
+      </field>
+  </record>
+</odoo>

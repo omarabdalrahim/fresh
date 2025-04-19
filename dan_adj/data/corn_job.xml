@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="ir_cron_scheduler_check_points_action" model="ir.cron">
+       <field name="name">Create Check Points</field>
+       <field name="model_id" ref="model_quality_point"/>
+       <field name="state">code</field>
+       <field name="code">model.corn_create_check_point()</field>
+       <field name="interval_number">5</field>
+       <field name="interval_type">minutes</field>
+   </record>
+
+    <record id="ir_cron_scheduler_check_points_p_days_action" model="ir.cron">
+       <field name="name">Create Check Points Periodic days</field>
+       <field name="model_id" ref="model_quality_point"/>
+       <field name="state">code</field>
+       <field name="code">model.create_check_point_for_p_days()</field>
+       <field name="interval_number">1</field>
+       <field name="interval_type">days</field>
+
+   </record>
+
+
+</odoo>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="internal_layout_custom_invoice_sum">
+        <div class="article">
+
+            <t t-raw="0"/>
+        </div>
+
+        <div class="footer o_standard_footer ">
+
+               <div groups="dan_adj.group_stump" class="col-3 text-center"
+                     style="margin-button:12px;margin-left:10px;color:blue;border:2px solid blue; font-weight: bold;">
+                    شركة المجــموعــة
+                    <br/>
+                    للأغذية والعصائـر
+                    <br/>
+                    س.ت <span>79473</span>القاهرة
+                    <br/>
+                    ب.ض 905-409-484
+                </div>
+
+            <div class="text-center" style="border-top: 1px solid black;">
+                المجموعة للأغذيه والعصائر ٥٧ المنطقه الصناعيه القاهره الجديده القاهره س . ج ٧٩٤٧٣ ب . ض ٩٠٥- ٤٠٩ - ٤٨٤ ت
+                ٠١٠٠٠٧١٠٩٩٧
+            </div>
+        </div>
+    </template>
+
+<!-- Translatable template -->
+
+
+<template id="invoice_sum_report">
+        
+          <t t-call="web.html_container">
+
+
+		 <t t-call="invoice_sum.internal_layout_custom_invoice_sum">
+
+             <t t-foreach="move" t-as="mv">
+                   <div align="right">
+                       <p><span t-field="mv.partner_id"/></p>
+
+
+                        <p><span t-field="mv.partner_id.street"/></p>
+                       
+                        <!--<p> <span t-field="mv.partner_id.partition"/>,<span t-field="mv.partner_id.district"/><span t-field="mv.partner_id.region_id"/></p>-->
+                        <p> <span t-field="mv.partner_id.city"/>,<span t-field="mv.partner_id.state_id.name"/></p>
+                   </div>
+                <t t-set="address">
+                    <address t-field="mv.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+
+                </t>
+                <div class="page">
+                    <h2>
+                        <span t-field="mv.name"></span>
+
+                    </h2>
+
+                    <div id="informations" class="row mt32 mb32">
+                        <div class="col-auto mw-100 mb-2" t-if="mv.invoice_date" name="invoice_date">
+                            <strong>Invoice Date:</strong>
+                            <p class="m-0" t-field="mv.invoice_date"/>
+                        </div>
+                        <div class="col-auto mw-100 mb-2" name="due_date">
+                            <strong>Due Date:</strong>
+                            <p class="m-0" t-field="mv.invoice_date_due"/>
+                        </div>
+<!--                        <div class="col-auto mw-100 mb-2" t-if="mv.invoice_origin" name="origin">-->
+<!--                            <strong>Source:</strong>-->
+<!--                            <p class="m-0" t-field="mv.invoice_origin"/>-->
+<!--                        </div>-->
+                        <div class="col-auto mw-100 mb-2" t-if="mv.partner_id.ref" name="customer_code">
+                            <strong>Customer Code:</strong>
+                            <p class="m-0" t-field="mv.partner_id.ref"/>
+                        </div>
+                        <div class="col-auto mw-100 mb-2" t-if="mv.ref" name="reference">
+                            <strong>Reference:</strong>
+                            <p class="m-0" t-field="mv.ref"/>
+                        </div>
+                    </div>
+
+                    <t t-set="display_discount" t-value="any([l.discount for l in mv.invoice_line_ids])"/>
+
+
+                      <t t-set="j" t-value="1"/>
+                     <table class="table table-sm o_main_table" name="invoice_line_table">
+                      <thead>
+						<tr style="color:blue">
+						    <th>seq</th>
+							<th>Product</th>
+							<th>Quantity</th>
+							<th>Unit Price</th>
+							<th>Taxes</th>
+							<th>Total</th>
+
+
+						  </tr>
+						  </thead>
+
+
+                   <tbody>
+						  <t t-foreach="docs" t-as="line">
+                              <t t-if="mv==line['move_id']">
+                          <tr>
+						    <td >
+														<span t-esc="j"/>
+													</td>
+						      <td >
+														<t t-esc="line['product_id'].name"/>
+													</td>
+													 <td>
+														<t t-esc="line['quantity']"/>
+													</td>
+							  <td>
+														<t t-esc="line['price_unit']"/>
+													</td>
+							  <td>
+														<t t-esc="line['tax_ids'].name"/>
+													</td>
+							  <td>
+														<t t-esc="round(line['price_total'],3)"/>
+													</td>
+
+						  </tr>
+                                  <t t-set="j" t-value="j+1"/></t>
+						  </t>
+						  </tbody>
+				   </table>
+                   <div class="clearfix">
+                        <div id="total" class="row">
+                            <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                                <table class="table table-sm" style="page-break-inside: avoid;">
+                                    <tr class="border-black o_subtotal" style="">
+                                        <td><strong>Subtotal</strong></td>
+                                        <td class="text-right">
+                                            <span t-field="mv.amount_untaxed"/>
+                                        </td>
+                                    </tr>
+<!--                                    <t t-foreach="mv.amount_by_group" t-as="amount_by_group">-->
+<!--                                        <tr style="">-->
+<!--                                            <t t-if="len(mv.line_ids.filtered(lambda line: line.tax_line_id)) == 1 and mv.amount_untaxed == amount_by_group[2]">-->
+<!--                                                <td><span class="text-nowrap" t-esc="amount_by_group[0]"/></td>-->
+<!--                                                <td class="text-right o_price_total">-->
+<!--                                                    <span class="text-nowrap" t-esc="amount_by_group[3]"/>-->
+<!--                                                </td>-->
+<!--                                            </t>-->
+<!--                                            <t t-else="">-->
+<!--                                                <td>-->
+<!--                                                    <span t-esc="amount_by_group[0]"/>-->
+<!--                                                    <span class="text-nowrap"> on-->
+<!--                                                        <t t-esc="amount_by_group[4]"/>-->
+<!--                                                    </span>-->
+<!--                                                </td>-->
+<!--                                                <td class="text-right o_price_total">-->
+<!--                                                    <span class="text-nowrap" t-esc="amount_by_group[3]"/>-->
+<!--                                                </td>-->
+<!--                                            </t>-->
+<!--                                        </tr>-->
+<!--                                    </t>-->
+                                    <tr class="border-black o_total">
+                                        <td><strong>Total</strong></td>
+                                        <td class="text-right">
+                                            <span class="text-nowrap" t-field="mv.amount_total"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+             </t></t>
+
+			</t>
+    </template>
+
+
+
+
+	
+        
+</odoo>

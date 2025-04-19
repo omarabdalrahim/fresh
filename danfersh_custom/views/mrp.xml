@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="mrp_production_form_view_qualtiy" model="ir.ui.view">
+            <field name="name">mrp_production_form_view_qualtiy</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+f
+
+                <xpath expr="//button[@name='button_unbuild']" position="after">
+                    <button name="create_quality" type="object" string="Create Quality"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="oe_stat_button" name="action_view_mrp_production_sources" type="object"
+                            icon="fa-wrench" attrs="{'invisible': [('count_qualtiy', '=', 0)]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="count_qualtiy"/>
+                            </span>
+                            <span class="o_stat_text">Quality Alert</span>
+                        </div>
+                    </button>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

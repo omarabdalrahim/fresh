@@ -1,0 +1,188 @@
+<odoo>
+    <template id="pisonaj_sum_report_2">
+
+        <t t-call="web.html_container">
+
+            <t t-call="web.basic_layout">
+
+                <div class="header">
+                    <p></p>
+                </div>
+                <style type="text/css">
+                    * {margin: 0; padding: 0;}
+                    #container {height: 100%; width:100%; font-size: 0;}
+                    #left, #middle, #right {display: inline-block; *display: inline; zoom: 1; vertical-align: top;
+                    font-size: 12px;}
+                    #left {width: 50px; background: #13D607;height:930px}
+                    #middle {width: 750px;border-style: solid;font-size:20px}
+                    #right {width: 50px; background: #13D607;height:930px}
+                    table,th {
+                    border: 1px solid black;
+                    border-radius:6px;
+                    border-collapse: collapse;
+
+                    }
+                    td {
+                    border: 1px solid black;
+                    border-radius:6px;
+                    border-collapse: collapse;
+
+
+                    }
+                    tr{
+                    height:50px
+                    }
+                </style>
+
+
+                <t t-foreach="cate_id" t-as="cat">
+                    <div class="page" style="bgcolor:green">
+
+                        <div id="left">
+                            <p></p>
+                        </div>
+                        <div id="middle" class="text-center">
+                            <t t-if="website_logo.logo">
+                                <div style="  text-align: center;">
+                                    <img t-att-src="image_data_uri(website_logo.logo)" style="text-align: center"
+                                         width="150px" height="70px"/>
+                                </div>
+                            </t>
+                            <h3 align="center" style="fbackground-color:#13D607">
+                                <span t-esc="cat['cat'].name"/>
+                            </h3>
+                            <t t-if="cat['check']==True">
+                                <table align="right" style=";width:375px">
+                                    <thead>
+                                        <!--						  <tr>-->
+
+                                        <!--							<th> </th>-->
+                                        <!--							<th></th>-->
+                                        <!--							  <th></th>-->
+                                        <!--							  <th></th>-->
+
+
+                                        <!--						  </tr>-->
+                                    </thead>
+
+
+                                    <tbody>
+                                        <t t-foreach="docs_right" t-as="line">
+                                            <t t-if="line['page']==cat['page']">
+                                                <t t-if="cat['cat']==line['categ_id']">
+                                                    <tr>
+                                                        <td align="center" colpan="2">
+                                                            <t t-esc="line['product_tmpl_id']"/>
+                                                        </td>
+
+
+                                                        <td align="center">
+                                                            <t t-esc="line['fixed_price']"/>
+                                                        </td>
+                                                        <td align="center">
+                                                            <t t-esc="line['pro_id'].uom_id.name"/>
+                                                        </td>
+
+
+                                                    </tr>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <table align="left" style="width:375px;">
+
+                                    <!--                  <thead>-->
+                                    <!--						  <tr>-->
+
+                                    <!--							<th></th>-->
+                                    <!--							<th></th>-->
+
+                                    <!--                            <th></th>-->
+                                    <!--							  <th></th>-->
+
+                                    <!--						  </tr>-->
+                                    <!--						  </thead>-->
+
+                                    <tbody>
+                                        <t t-foreach="docs_left" t-as="line">
+                                            <t t-if="line['page']==cat['page']">
+                                                <t t-if="cat['cat']==line['categ_id']">
+                                                    <tr>
+                                                        <td align="center" colpan="2">
+                                                            <t t-esc="line['product_tmpl_id']"/>
+                                                        </td>
+
+
+                                                        <td align="center">
+                                                            <t t-esc="line['fixed_price']"/>
+                                                        </td>
+                                                        <td align="center">
+                                                            <t t-esc="line['pro_id'].uom_id.name"/>
+                                                        </td>
+
+
+                                                    </tr>
+                                                </t>
+                                            </t>
+
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <t t-if="cat['check']==False">
+                                <table align="left" style="width:750px;">
+
+                                    <thead>
+                                        <!--						  <tr>-->
+
+                                        <!--							<th></th>-->
+                                        <!--							<th></th>-->
+
+                                        <!--                             <th></th>-->
+                                        <!--                            <th></th>-->
+                                        <!--						  </tr>-->
+                                    </thead>
+
+                                    <tbody>
+                                        <t t-foreach="docs" t-as="line">
+                                            <t t-if="line['page']==cat['page']">
+                                                <t t-if="cat['cat']==line['categ_id']">
+                                                    <tr>
+                                                        <td align="center" colpan="2">
+                                                            <t t-esc="line['product_tmpl_id']"/>
+                                                        </td>
+
+
+                                                        <td align="center">
+                                                            <t t-esc="line['fixed_price']"/>
+                                                        </td>
+                                                        <td align="center">
+                                                            <t t-esc="line['pro_id'].uom_id.name"/>
+                                                        </td>
+
+
+                                                    </tr>
+                                                </t>
+                                            </t>
+                                        </t>
+
+                                    </tbody>
+                                </table>
+                            </t>
+
+                        </div>
+                        <div id="right">
+                            <p></p>
+                        </div>
+                    </div>
+                </t>
+                <div class="footer">
+                    <p></p>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

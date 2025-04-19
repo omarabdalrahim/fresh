@@ -1,0 +1,9 @@
+<odoo>
+    <record id="show_only_customer" model="res.groups">
+        <field name="name">Show only customer</field>
+    </record>
+<!--    <record id="contacts.action_contacts" model="ir.actions.act_window">-->
+<!--        <field name="domain">[('is_show','=',True)]</field>-->
+
+<!--    </record>-->
+</odoo>

@@ -1,0 +1,14 @@
+<odoo>
+    <!--    <template id="portal_my_home_22" inherit_id="portal.portal_my_home" customize_show="True" priority="1000">-->
+    <template id="add_url_field" inherit_id="website_sale.address">
+        <xpath expr="//div[@id='div_phone']"
+               position="after">
+            <div t-attf-class="form-group #{error.get('x_location') and 'o_has_error' or ''} col-md-12 div_location">
+                <label class="col-form-label" for="x_location">Location Url</label>
+                <input type="text" name="x_location" required="1"
+                       t-attf-class="form-control #{error.get('x_location') and 'is-invalid' or ''}"
+                       t-att-value="'x_location' in checkout and checkout['x_location']"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

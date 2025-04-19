@@ -1,0 +1,40 @@
+<odoo>
+ <record id="product_template_purchase_price" model="ir.ui.view">
+            <field name="name">product_template_purchase_price</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+<!--                     <field name="type_cal"/>-->
+                     <field name="puchase_price"/>
+                                        <button type="object" name="update_purchase_order" string="Update" class="btn-primary" />
+
+<!--                    <button type="object" name="update_purchase_order" string="Update" class="btn-primary" invisible="type_cal !=Purchase Price"/>-->
+<!--                    <field name="amount_list" -->
+<!--                           invisible="type_cal != Purchase Price'" -->
+<!--                           required="type_cal =='Purchase Price'"/>-->
+                    <field name="amount_list"/>
+                    <field name="amount"  invisible = "amount_list !='Amount'" required="amount_list == 'Amount'"/>
+                    <field name="precentage"  invisible="amount_list =='Amount'" required = "amount_list != 'Amount'"/>
+                </xpath>
+
+            </field>
+        </record>
+     <record id="product_template_purchase_price_update" model="ir.ui.view">
+           <field name="name">product_template_purchase_price_update</field>
+            <field name="model">product.product</field>
+           <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="update_price"/>
+
+                    </group>
+                    <footer>
+                        <button special="cancel" string="Cancel" />
+                        <button name="action_save" type="object" string="Save"/>
+                    </footer>
+                </form>
+            </field>
+    </record>
+ </odoo>

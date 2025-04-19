@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+	<record id="po_so_form2" model="ir.ui.view">
+    <field name="name">po_so_form</field>
+	<field name="model" >warehouse.sales</field>
+	<field name="arch" type="xml">  
+	   <form>
+	      <group>
+ 
+		  <field name="warehouse_id" required="1"/>
+		   </group>
+		 
+         <footer>
+		       <button name="action_create_po" type="object" string="Create Purchase order" class="oe_highlight"/>
+		 </footer>
+	   </form>
+	</field>
+	</record>
+    
+	</odoo>

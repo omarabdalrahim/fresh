@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sale_order_task" model="ir.ui.view">
+        <field name="name">view_sale_order_task</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[last()]" position="after">
+                <button type="object" name="create_task" string="Create Task" class="btn-primary"/>
+                <button type="object" name="create_ticket" string="Create Ticket" class="btn-primary"/>
+            </xpath>
+            <xpath expr="//button[@name='action_view_invoice']" position="after">
+<!--                omar Field "x_count_task" does not exist in model "sale.order"
+-->
+<!--                <button class="oe_stataction_view_task_button" type="object" name="action_view_task" icon="fa-ticket"-->
+<!--                        attrs="{'invisible':[('x_count_task','=',0)]}">-->
+<!--                    <field name="x_count_task" widget="statinfo" string="Tasks"/>-->
+<!--                </button>-->
+<!--                <button class="oe_stataction_view_task_button" type="object" name="action_view_ticket" icon="fa-ticket"-->
+<!--                        attrs="{'invisible':[('x_count_ticket','=',0)]}">-->
+<!--                    <field name="x_count_ticket" widget="statinfo"/>-->
+<!--                </button>-->
+            </xpath>
+        </field>
+    </record>
+</odoo>

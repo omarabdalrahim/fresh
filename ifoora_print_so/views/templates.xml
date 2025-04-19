@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_euro_no_margin_2" model="report.paperformat">
+        <field name="name">European A4 for DINssss</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">15</field>
+        <field name="margin_bottom">28</field>
+        <field name="margin_left">15</field>
+        <field name="margin_right">18</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+    </record>
+    <template t-name="ifoora_print_so.external_layout_standard_2">
+        <div class="header" t-att-style="report_header_style">
+            <!--           -->
+        </div>
+
+        <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+             t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-call="web.address_layout"/>
+            <t t-raw="0"/>
+        </div>
+
+        <div class="footer o_standard_footer">
+            <!--          -->
+        </div>
+    </template>
+    <template id="report_saleorder_document_2">
+        <t t-call="ifoora_print_so.external_layout_standard_2">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
+
+            <div class="page">
+                <style>
+                    .border_line{
+                    border-style: solid;
+                    }
+                </style>
+                <div class="oe_structure"/>
+                <br></br>
+                <br></br>
+                <center>
+                    <h4>Quotation</h4>
+                </center>
+                <table style="width:100%">
+                    <tr>
+                        <td>TO Captain</td>
+                        <td>
+                            <span t-field="doc.partner_id.name"/>
+                        </td>
+                        <td></td>
+                        <td>
+                            <span t-field="doc.date_order" t-options='{"format": "MM/dd/yyyy"}'/>
+                        </td>
+                    </tr>
+                </table>
+                <br></br>
+
+
+
+                <table class="table">
+                    <!-- In case we want to repeat the header, remove "display: table-row-group" -->
+                    <thead style="display: table-row-group">
+                        <tr>
+                            <th name="th_description" class="border_line text-left">N</th>
+                            <th name="th_description" class="border_line text-left" colspan="2">Description</th>
+                            <th name="th_quantity" class="border_line text-center">PIC</th>
+                            <th name="th_quantity" class=" border_line text-right">Quantity</th>
+                            <th name="th_priceunit" class=" border_line text-right">Price</th>
+
+                            <th name="th_subtotal" class="text-right">
+                                <span>Amount</span>
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+
+                        <t t-set="current_subtotal" t-value="0"/>
+                        <t t-set="count" t-value="1"/>
+
+                        <t t-foreach="doc.order_line" t-as="line">
+
+
+                            <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                <t t-if="not line.display_type">
+
+                                    <td class="border_line" name="td_name">
+                                        <span t-esc="count"/>
+                                    </td>
+                                    <td class="border_line" name="td_name">
+                                        <span t-field="line.product_id.default_code"/>
+                                    </td>
+                                    <td class="border_line" name="td_name">
+                                        <span t-field="line.product_id.name"/>
+                                    </td>
+                                    <td class="border_line" align="center">
+                                        <t t-if="line.product_id.image_1920">
+                                            <img t-att-src="image_data_uri(line.product_id.image_1920)" width="40px"
+                                                 height="40px"/>
+                                        </t>
+                                    </td>
+                                    <td name="td_quantity" class="text-right border_line">
+                                        <span t-field="line.product_uom_qty"/>
+
+                                    </td>
+                                    <td name="td_priceunit" class="text-right border_line">
+                                        <span t-field="line.price_unit"/>
+                                    </td>
+
+                                    <td name="td_subtotal" class="text-right o_price_total border_line">
+                                        <span t-field="line.price_subtotal"/>
+
+                                    </td>
+                                    <t t-set="count" t-value="count+1"/>
+                                </t>
+
+                            </tr>
+
+
+                        </t>
+                        <tr  >
+                            <td colspan="2"></td>
+                            <td class="border_line " colspan="3" style=" background-color: #cccccc;">Total</td>
+                            <td class="border_line o_price_total" colspan="2"><span t-esc="doc.amount_undiscounted"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td class="border_line" colspan="3" style=" background-color: #cccccc;">Dis%</td>
+<!--                            <td class="border_line" colspan="2"><t t-esc="doc.get_dis_total(doc)"/></td>-->
+                            <td class="border_line" colspan="2"><t t-esc="round(doc.amount_undiscounted-doc.amount_untaxed,2)"/></td>
+                        </tr>
+                        <tr  >
+                            <td colspan="2"></td>
+                            <td class="border_line" colspan="3" style=" background-color: #cccccc;">SUB Total</td>
+                            <td class="border_line" colspan="2"><span t-esc="doc.amount_total"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+<!--                <p>-->
+<!--                    <t t-esc="doc.get_amount_ar(doc)"/>-->
+<!--                </p>-->
+              <br></br>
+              <br></br>
+                <table style="width:100%">
+                    <tr>
+                        <td>Sales Manager</td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td><br></br></td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>  Manager</td>
+                        <td> </td>
+                    </tr>
+                </table>
+
+
+            </div>
+        </t>
+    </template>
+
+
+    <template id="report_saleorder_pro_forma_ifoora">
+        <t t-call="web.html_container">
+            <t t-set="is_pro_forma" t-value="True"/>
+            <t t-set="docs" t-value="docs.with_context(proforma=True)"/>
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="ifoora_print_so.report_saleorder_document_2" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <!-- QWeb Reports -->
+    <!-- NAME & FILE_NAME should be the same -->
+    <report
+            id="action_report_saleorder_pro_forma_ifoora"
+            model="sale.order"
+            report_type="qweb-pdf"
+            string="IFOORA"
+            name="ifoora_print_so.report_saleorder_pro_forma_ifoora"
+            file="ifoora_print_so.report_saleorder_pro_forma_ifoora"
+            paperformat="ifoora_print_so.paperformat_euro_no_margin_2"
+    />
+
+</odoo>

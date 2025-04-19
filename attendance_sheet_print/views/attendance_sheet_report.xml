@@ -1,0 +1,179 @@
+<odoo>
+    <data>
+        <!--attendance sheet template-->
+        <template id="report_attendance_sheet">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-set="docs" t-value="docs.with_context(proforma=True)"/>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page">
+                            <h3>
+                                Attendance Sheet For
+                                <br/>
+                                <span  t-esc="doc.employee_id.name"/>
+                            </h3>
+                            <br/>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr >
+                                        <th scope="col">Date/
+                                            <br></br>
+                                            التاريخ</th>
+                                        <th scope="col">PL/In</th>
+                                        <th scope="col">PL/Out</th>
+                                        <th scope="col">ACT/In
+                                             <br></br>
+                                            الحضور</th>
+                                        <th scope="col">ACT/Out
+                                             <br></br>
+                                            الانصراف</th>
+                                        <th scope="col">Worked/Hours
+                                             <br></br>
+                                            اوقات العمل</th>
+                                        <th scope="col">Actual Late In
+                                             <br></br>
+                                            التاخير الفعلي</th>
+                                        <th scope="col">Late In
+                                             <br></br>
+                                            التاخير</th>
+                                        <th scope="col">Actual Overtime
+                                             <br></br>
+                                            الوقت الاضافي الفعلي</th>
+                                        <th scope="col">Overtime
+                                             <br></br>
+                                            الوقت الاضافي </th>
+                                        <th scope="col">Actual Diff Time
+                                             <br></br>
+                                            فرق الوقت</th>
+                                        <th scope="col">Diff Time
+                                             <br></br>
+                                            فرق الوقت</th>
+                                        <th scope="col">Status
+                                             <br></br>
+                                            الحاله</th>
+                                        <th scope="col">Note
+                                             <br></br>
+                                            الملاحظات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="c" t-value="0"/>
+                                    <t t-foreach="doc.line_ids" t-as="line">
+                                        <t t-if="c%2==0">
+                                            <tr style="background:#dfeeff">
+                                                <td>
+                                                    <span t-esc="line.date"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'% line.pl_sign_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.pl_sign_out"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.ac_sign_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.ac_sign_out"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.worked_hours"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.act_late_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.late_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.act_overtime"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.overtime"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.act_diff_time"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.diff_time"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="line.status"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="line.note"/>
+                                                </td>
+
+                                            </tr>
+                                        </t>
+                                        <t t-else="">
+                                            <tr>
+                                                         <td>
+                                                    <span t-esc="line.date"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'% line.pl_sign_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.pl_sign_out"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.ac_sign_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.ac_sign_out"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.worked_hours"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.act_late_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.late_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.act_overtime"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.overtime"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.act_diff_time"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="'%.2f'%line.diff_time"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="line.status"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="line.note"/>
+                                                </td>
+
+                                            </tr>
+                                        </t>
+                                        <t t-set="c" t-value="c+1"/>
+                                    </t>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!--        attendance sheet report action-->
+        <report
+                id="action_report_attendance_sheet"
+                model="attendance.sheet"
+                report_type="qweb-pdf"
+                string="Attendance Sheet"
+                name="attendance_sheet_print.report_attendance_sheet"
+                file="attendance_sheet_print.report_attendance_sheet"
+        />
+
+
+    </data>
+</odoo>

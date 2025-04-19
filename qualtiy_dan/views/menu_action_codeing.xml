@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="model_coding_action" model="ir.actions.act_window">
+            <field name="name">النموذج</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.coding</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="action_coding_action" model="ir.actions.act_window">
+            <field name="name">تكويدالاجراء</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">action.coding</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="action_instruction_action" model="ir.actions.act_window">
+            <field name="name">تكويد التعليمات</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.instruction</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_root_coding" name="تكويد" parent="quality_control.menu_quality_configuration"
+
+                  sequence="20"/>
+        <menuitem id="menu_action_coding" name="تكويدالاجراء" parent="qualtiy_dan.menu_root_coding"
+                action="action_coding_action"
+                  sequence="1"/>
+        <menuitem id="menu_mode_coding" name="  تكويد النموذج" parent="qualtiy_dan.menu_root_coding"
+                   action="model_coding_action"
+                  sequence="2"/>
+         <menuitem id="menu_هىسفقعؤفهخى_coding" name="  تكويد التعليمات" parent="qualtiy_dan.menu_root_coding"
+                   action="action_instruction_action"
+                  sequence="2"/>
+        <menuitem id="menu_هىسفقعؤفهخى_coding" name="  تكويد التعليمات" parent="qualtiy_dan.menu_root_coding"
+                   action="action_instruction_action"
+                  sequence="2"/>
+    </data>
+</odoo>

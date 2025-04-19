@@ -1,0 +1,93 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="internal_sale_order">
+      <field name="name">internal_sale_order list</field>
+      <field name="model">internal.sales.transfer</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+          <field name="warehouse_id" required="1"/>
+          <field name="dest_warehouse_id" required="1"/>
+           </group>
+            <footer>
+                 <button name="create_transfer" type="object" string="Create internal" class="oe_highlight"/>
+            </footer>
+
+        </form>
+      </field>
+    </record>
+    <record id="model_sale_order_action_purchase_so_internal" model="ir.actions.server">
+            <field name="name">Internal  Transfer </field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+<!--            <field name="binding_view_types">form,list</field>-->
+            <field name="state">code</field>
+<!--          <field name="code">action = records.action_internal_tran()</field>-->
+            <field name="code">
+            action = {
+            'name': 'Transfer',
+            'view_mode': 'form',
+            'res_model': 'internal.sales.transfer',
+            'type': 'ir.actions.act_window','target': 'new',
+            'context': {'default_sales_order': [(4,rec.id )for rec in records]},
+
+        }</field>
+        </record>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="internal_sale_order.list">
+      <field name="name">internal_sale_order list</field>
+      <field name="model">internal_sale_order.internal_sale_order</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="internal_sale_order.action_window">
+      <field name="name">internal_sale_order window</field>
+      <field name="res_model">internal_sale_order.internal_sale_order</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="internal_sale_order.action_server">
+      <field name="name">internal_sale_order server</field>
+      <field name="model_id" ref="model_internal_sale_order_internal_sale_order"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="internal_sale_order" id="internal_sale_order.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="internal_sale_order.menu_1" parent="internal_sale_order.menu_root"/>
+    <menuitem name="Menu 2" id="internal_sale_order.menu_2" parent="internal_sale_order.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="internal_sale_order.menu_1_list" parent="internal_sale_order.menu_1"
+              action="internal_sale_order.action_window"/>
+    <menuitem name="Server to list" id="internal_sale_order" parent="internal_sale_order.menu_2"
+              action="internal_sale_order.action_server"/>
+-->
+  </data>
+</odoo>

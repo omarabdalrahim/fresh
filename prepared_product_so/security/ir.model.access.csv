@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_prepared_product_so_prepared_product_so,prepared_product_so.prepared_product_so,model_prepared_product_so_prepared_product_so,base.group_user,1,1,1,1

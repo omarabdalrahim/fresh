@@ -1,0 +1,74 @@
+<odoo>
+  <data>
+
+    <!-- Inherit Form View to Modify it -->
+<!--    <record id="view_order_product_pivot_custom" model="ir.ui.view">-->
+<!--        <field name="name">view_order_product_pivot_custom</field>-->
+<!--        <field name="model">sale.report</field>-->
+<!--        <field name="inherit_id" ref="sale.view_order_product_pivot"/>-->
+<!--        <field name="arch" type="xml">-->
+
+<!--            <xpath expr="//field[@name='name']" position="">-->
+<!--                &lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+<!--            </xpath>-->
+
+<!--        </field>-->
+<!--    </record>-->
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="sales_report_custom.list">
+      <field name="name">sales_report_custom list</field>
+      <field name="model">sales_report_custom.sales_report_custom</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="sales_report_custom.action_window">
+      <field name="name">sales_report_custom window</field>
+      <field name="res_model">sales_report_custom.sales_report_custom</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="sales_report_custom.action_server">
+      <field name="name">sales_report_custom server</field>
+      <field name="model_id" ref="model_sales_report_custom_sales_report_custom"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="sales_report_custom" id="sales_report_custom.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="sales_report_custom.menu_1" parent="sales_report_custom.menu_root"/>
+    <menuitem name="Menu 2" id="sales_report_custom.menu_2" parent="sales_report_custom.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="sales_report_custom.menu_1_list" parent="sales_report_custom.menu_1"
+              action="sales_report_custom.action_window"/>
+    <menuitem name="Server to list" id="sales_report_custom" parent="sales_report_custom.menu_2"
+              action="sales_report_custom.action_server"/>
+-->
+  </data>
+</odoo>

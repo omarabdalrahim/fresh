@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="report_picking_purchase">
+            <t t-call="web.html_container">
+
+
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+                        <t t-foreach="docs" t-as="o">
+                            <t t-set="data" t-value="o.get_last_price_all(docs)"/>
+                        </t>
+
+
+                        <table class="table table-sm border">
+                            <thead>
+                                <tr>
+                                    <th name="th_product">
+                                        <strong>Product</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Quantity</strong>
+                                    </th>
+                                    <th name="th_from" align="left">
+                                        <strong>Last Purchase Price</strong>
+                                    </th>
+                                    <th name="th_from" align="left">
+                                        <strong>Total</strong>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- In case you come across duplicated lines, ask NIM or LAP -->
+                                <t t-set="total_qty" t-value="0"/>
+                                <t t-set="total_price" t-value="0"/>
+                                <t t-set="total_p" t-value="0"/>
+                                <t t-foreach="data" t-as="ml">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="ml['product_id']"/>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="ml['qty']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="ml['price']"/>
+                                        </td>
+                                        <td>
+
+                                            <span t-esc="ml['total']"/>
+                                        </td>
+                                        <t t-set="total_qty" t-value="total_qty+ml['qty']"/>
+                                        <t t-set="total_p" t-value="total_p+ml['price']"/>
+                                        <t t-set="total_price" t-value="total_price+ml['total']"/>
+
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tr style="background-color: lightblue;">
+                                <td>
+                                    TOTAL
+                                </td>
+                                <td>
+                                    <span t-esc="total_qty"/>
+                                </td>
+                                <td>
+                                    <span t-esc="total_p"/>
+                                </td>
+                                <td>
+                                    <span t-esc="total_price"/>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </t>
+            </t>
+
+        </template>
+
+
+
+
+
+
+        <record id="action_report_cost" model="ir.actions.report">
+            <field name="name">Transfer Purchase</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">danfersh_custom.report_picking_purchase</field>
+            <field name="report_file">danfersh_custom.report_picking_purchase</field>
+            <field name="print_report_name">'Operation - %s' % object.name</field>
+            <field name="binding_model_id" ref="model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

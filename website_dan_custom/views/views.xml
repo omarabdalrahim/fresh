@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+       <record id="view_week_days" model="ir.ui.view">
+        <field name="name">view_week_days</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+          <field name="category_id" position="after">
+            <field options="{'no_create': True}" name="delivery_days" widget="many2many_tags"/>
+          </field>
+        </field>
+       </record>
+
+<!--        <record id="view_delivery_date" model="ir.ui.view">-->
+<!--        <field name="name">view_delivery_date</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="inherit_id" ref="sale.view_order_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--&lt;!&ndash;          <field name="customer_order_delivery_date" position="after">&ndash;&gt;-->
+<!--&lt;!&ndash;            <field name="delivery_date" />&ndash;&gt;-->
+
+<!--          </field>-->
+<!--        </field>-->
+<!--       </record>-->
+
+  </data>
+</odoo>

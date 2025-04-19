@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<report
+    id="invoice_sum"
+    model="product.pricelist"
+    string="Pisonaj pricelist"
+    report_type="qweb-pdf"
+    name="pricelist_pisonaj.pisonaj_sum_report"
+    file="pricelist_pisonaj.pisonaj_sum_report"
+     
+/>
+<report
+    id="pricelist_2"
+    model="product.pricelist"
+    string="Pisonaj Pricelist 2"
+    report_type="qweb-pdf"
+    name="pricelist_pisonaj.pisonaj_sum_report_2"
+    file="pricelist_pisonaj.pisonaj_sum_report_2"
+
+/>
+</odoo>

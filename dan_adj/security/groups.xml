@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+            <record id="group_stump" model="res.groups">
+       <field name="name">Stump in reports</field>
+   </record>
+    </data>
+</odoo>

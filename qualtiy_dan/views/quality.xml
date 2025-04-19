@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="quality_point_view_form_coding" model="ir.ui.view">
+            <field name="name">quality_point_view_form_coding</field>
+            <field name="model">quality.point</field>
+            <field name="inherit_id" ref="quality.quality_point_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="coding_id"/>
+                    <field name="model_coding_id"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+        <record id="quality_check_view_form_coding" model="ir.ui.view">
+            <field name="name">quality_check_view_form_coding</field>
+            <field name="model">quality.check</field>
+            <field name="inherit_id" ref="quality_control.quality_check_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="branch_id" invisible="1"/>
+                    <field name="coding_id"/>
+                    <field name="model_coding_id"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

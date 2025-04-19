@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="group_visitor" model="res.groups">
+            <field name="name">انشاء اسئله جديده ف استبيان الزائر</field>
+        </record>
+         <record id="group_action_band_edit_create" model="res.groups">
+            <field name="name">انشاء وتعديل تكويدالاجراء</field>
+        </record>
+        <record id="group_action_band_delete" model="res.groups">
+            <field name="name">حذف تكويدالاجراء</field>
+        </record>
+        <record id="group_model_coding_edit_create" model="res.groups">
+            <field name="name">انشاء وتعديل النموذج</field>
+        </record>
+        <record id="group_model_coding_delete" model="res.groups">
+            <field name="name">حذف النموذج</field>
+        </record>
+        <record id="group_model_instruction_edit_create" model="res.groups">
+            <field name="name">انشاء وتعديل تكويد التعليمات</field>
+        </record>
+        <record id="group_model_instruction_delete" model="res.groups">
+            <field name="name">حذف تكويد التعليمات</field>
+        </record>
+        <record id="group_model_instruction_edit_create" model="res.groups">
+        <field name="name">انشاء وتعديل المراجع</field>
+        </record>
+        <record id="group_model_instruction_delete" model="res.groups">
+            <field name="name">حذف المراجع</field>
+        </record>
+         <record id="group_page_action_first_edit_create" model="res.groups">
+        <field name="name">انشاء وتعديل الصفحه الاولي</field>
+        </record>
+        <record id="group_page_action_first_delete" model="res.groups">
+            <field name="name">حذف الصفحه الاولي</field>
+        </record>
+
+           <record id="group_page_action_action_band_edit_create" model="res.groups">
+        <field name="name">انشاء وتعديل  بنود الاجراءات</field>
+        </record>
+        <record id="group_page_action_band_delete" model="res.groups">
+            <field name="name">حذف الصفحه الاولي</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,1043 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dan_adj
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-13 20:56+0000\n"
+"PO-Revision-Date: 2023-02-13 20:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dan_adj
+#: model:ir.actions.report,print_report_name:dan_adj.action_report_sale_company_paper
+msgid "'Qty - %s' % (object.name)"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_quality_alert_custom
+msgid "<span class=\"o_stat_text\">طلبات الصيانة</span>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
+"                                <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<span>Disc.%</span>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<span>Pro-Forma Invoice #</span>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<strong>Expiration:</strong>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<strong>Fiscal Position Remark:</strong>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<strong>Order Date:</strong>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<strong>Quotation Date:</strong>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<strong>Salesperson:</strong>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<strong>Shipping Address:</strong>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<strong>Signature</strong>"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "<strong>Your Reference:</strong>"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_config_setting
+msgid "Add Quality Point Related Field in Quality control points"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_config_setting
+msgid "Add Quality control points"
+msgstr "أضف نقاط الجودة"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_res_company__add_related_control_point
+#: model:ir.model.fields,field_description:dan_adj.field_res_config_settings__add_related_control_point
+msgid "Add Related Control Points"
+msgstr "أضف نقاط التحكم ذات الصلة"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__add_related_points
+msgid "Add Related Points"
+msgstr "أضف النقاط ذات الصلة"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__alert_ids
+msgid "Alert"
+msgstr "تنبيهات"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__alert_corrective
+msgid "Alert Corrective"
+msgstr "تصحيح التنبية"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__alert_count
+msgid "Alert Count"
+msgstr "عدد التنبيهات"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__alert_desc
+msgid "Alert Desc"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__alert_preve
+msgid "Alert Preve"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_maintenance_request__alert_id
+msgid "Alert Reference"
+msgstr ""
+
+#. module: dan_adj
+#: code:addons/dan_adj/model/quality_control.py:0
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_quality_custom
+#, python-format
+msgid "Alerts"
+msgstr "تنبيهات"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_quality_custom_alert
+msgid "Attachments"
+msgstr "المرفقات"
+
+#. module: dan_adj
+#: model:ir.actions.act_window,name:dan_adj.audit_action
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__audut_id
+#: model:ir.model.fields,field_description:dan_adj.field_quality_check__audit_id
+#: model:ir.ui.menu,name:dan_adj.menu_audit
+msgid "Audit"
+msgstr "اوديت"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_quality_custom
+msgid "Audit Check"
+msgstr "نقاط الفحص الخاصة بالاوديت"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__audit_check_count
+msgid "Audit Check Count"
+msgstr ""
+
+#. module: dan_adj
+#: code:addons/dan_adj/model/quality_control.py:0
+#, python-format
+msgid "Audit Checks"
+msgstr "قاط الفحص الخاصة بالاوديت"
+
+#. module: dan_adj
+#: model:ir.actions.act_window,name:dan_adj.audit_type_action
+msgid "Audit Types"
+msgstr "انواع الاوديت"
+
+#. module: dan_adj
+#: model:ir.ui.menu,name:dan_adj.menu_audit_type
+msgid "Audit type"
+msgstr "نوع الاوديت"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__auto_check_point
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__auto_check_point_day
+msgid "Automatic create check points"
+msgstr "انشاء نقاط الفحص اتوماتيك"
+
+#. module: dan_adj
+#: model:ir.actions.act_window,name:dan_adj.branch_action
+#: model:ir.model.fields,field_description:dan_adj.field_audit__branch_id
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__branch_id
+#: model:ir.ui.menu,name:dan_adj.menu_branch
+msgid "Branches"
+msgstr "الفروع"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_transfer_wizard
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__check_id
+msgid "Check Point"
+msgstr "نقطة فحص"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "Coach signature"
+msgstr "توقيع المدرب"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "Trainee signature"
+msgstr "توقيع المتدرب"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__comment
+msgid "Comment"
+msgstr "تعليق"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_res_company
+msgid "Companies"
+msgstr "الشركات "
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_res_partner
+msgid "Contact"
+msgstr "جهة اتصال "
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__control_message
+msgid "Control Message"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__control_name
+msgid "Control Name"
+msgstr "اسم نقطة الفحص"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__control_note
+msgid "Control Note"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__control_id
+msgid "Control Point"
+msgstr "نقطة تحكم"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__control_ids
+msgid "Control Points"
+msgstr "نقاط التحكم"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__control_reason
+msgid "Control Reason"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "Corrective Action"
+msgstr "اجراء تصحيحي"
+
+#. module: dan_adj
+#: model:ir.actions.server,name:dan_adj.ir_cron_scheduler_check_points_action_ir_actions_server
+#: model:ir.cron,cron_name:dan_adj.ir_cron_scheduler_check_points_action
+#: model:ir.cron,name:dan_adj.ir_cron_scheduler_check_points_action
+msgid "Create Check Points"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.actions.server,name:dan_adj.ir_cron_scheduler_check_points_p_days_action_ir_actions_server
+#: model:ir.cron,cron_name:dan_adj.ir_cron_scheduler_check_points_p_days_action
+#: model:ir.cron,name:dan_adj.ir_cron_scheduler_check_points_p_days_action
+msgid "Create Check Points Periodic days"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.actions.server,name:dan_adj.action_create_transfer
+msgid "Create Internal Transfer"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__create_uid
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__create_uid
+#: model:ir.model.fields,field_description:dan_adj.field_audit_type__create_uid
+#: model:ir.model.fields,field_description:dan_adj.field_branch__create_uid
+#: model:ir.model.fields,field_description:dan_adj.field_days__create_uid
+#: model:ir.model.fields,field_description:dan_adj.field_division__create_uid
+#: model:ir.model.fields,field_description:dan_adj.field_quality_type__create_uid
+#: model:ir.model.fields,field_description:dan_adj.field_training__create_uid
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__create_date
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__create_date
+#: model:ir.model.fields,field_description:dan_adj.field_audit_type__create_date
+#: model:ir.model.fields,field_description:dan_adj.field_branch__create_date
+#: model:ir.model.fields,field_description:dan_adj.field_days__create_date
+#: model:ir.model.fields,field_description:dan_adj.field_division__create_date
+#: model:ir.model.fields,field_description:dan_adj.field_quality_type__create_date
+#: model:ir.model.fields,field_description:dan_adj.field_training__create_date
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__date
+#: model:ir.model.fields,field_description:dan_adj.field_training__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__days_ids
+msgid "Days"
+msgstr "ايام"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "Description"
+msgstr "الشرح"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "Descriptions"
+msgstr "الشرح"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__location_dest_id
+msgid "Destination Location"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__display_name
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__display_name
+#: model:ir.model.fields,field_description:dan_adj.field_audit_type__display_name
+#: model:ir.model.fields,field_description:dan_adj.field_branch__display_name
+#: model:ir.model.fields,field_description:dan_adj.field_days__display_name
+#: model:ir.model.fields,field_description:dan_adj.field_division__display_name
+#: model:ir.model.fields,field_description:dan_adj.field_quality_type__display_name
+#: model:ir.model.fields,field_description:dan_adj.field_training__display_name
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.actions.act_window,name:dan_adj.division_action
+#: model:ir.ui.menu,name:dan_adj.menu_division
+msgid "Division"
+msgstr "القسم"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__division_ids
+#: model:ir.model.fields,field_description:dan_adj.field_branch__division_ids
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__division_ids
+msgid "Divisions"
+msgstr "الاقسام"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_transfer_wizard
+msgid "Done"
+msgstr "تم"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__equipment_id
+msgid "Equipment"
+msgstr "المعده"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__user_id
+msgid "Examiner"
+msgstr "الفاحص"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__fail_bool
+msgid "Fail"
+msgstr "فشل"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__has_message
+msgid "Has Message"
+msgstr "لدية رسالة"
+
+#. module: dan_adj
+#: model:ir.model.fields.selection,name:dan_adj.selection__quality_point__measure_frequency_unit__hour
+msgid "Hour"
+msgstr "ساعة"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__id
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__id
+#: model:ir.model.fields,field_description:dan_adj.field_audit_type__id
+#: model:ir.model.fields,field_description:dan_adj.field_branch__id
+#: model:ir.model.fields,field_description:dan_adj.field_days__id
+#: model:ir.model.fields,field_description:dan_adj.field_division__id
+#: model:ir.model.fields,field_description:dan_adj.field_quality_type__id
+#: model:ir.model.fields,field_description:dan_adj.field_training__id
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__message_needaction
+#: model:ir.model.fields,help:dan_adj.field_training__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__message_has_error
+#: model:ir.model.fields,help:dan_adj.field_training__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__attachment_ids
+#: model:ir.model.fields,field_description:dan_adj.field_quality_alert__attachment_ids
+msgid "Image"
+msgstr "الصورة"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "Instructions"
+msgstr "تعليمات"
+
+#. module: dan_adj
+#: code:addons/dan_adj/model/website_sale.py:0
+#, python-format
+msgid "Invalid Email! Please enter a valid email address."
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "Invoicing Address:"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "Invoicing and Shipping Address:"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit____last_update
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line____last_update
+#: model:ir.model.fields,field_description:dan_adj.field_audit_type____last_update
+#: model:ir.model.fields,field_description:dan_adj.field_branch____last_update
+#: model:ir.model.fields,field_description:dan_adj.field_days____last_update
+#: model:ir.model.fields,field_description:dan_adj.field_division____last_update
+#: model:ir.model.fields,field_description:dan_adj.field_quality_type____last_update
+#: model:ir.model.fields,field_description:dan_adj.field_training____last_update
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__write_uid
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__write_uid
+#: model:ir.model.fields,field_description:dan_adj.field_audit_type__write_uid
+#: model:ir.model.fields,field_description:dan_adj.field_branch__write_uid
+#: model:ir.model.fields,field_description:dan_adj.field_days__write_uid
+#: model:ir.model.fields,field_description:dan_adj.field_division__write_uid
+#: model:ir.model.fields,field_description:dan_adj.field_quality_type__write_uid
+#: model:ir.model.fields,field_description:dan_adj.field_training__write_uid
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__write_date
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__write_date
+#: model:ir.model.fields,field_description:dan_adj.field_audit_type__write_date
+#: model:ir.model.fields,field_description:dan_adj.field_branch__write_date
+#: model:ir.model.fields,field_description:dan_adj.field_days__write_date
+#: model:ir.model.fields,field_description:dan_adj.field_division__write_date
+#: model:ir.model.fields,field_description:dan_adj.field_quality_type__write_date
+#: model:ir.model.fields,field_description:dan_adj.field_training__write_date
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__line_ids
+msgid "Lines"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.add_url_field
+msgid "Location Url"
+msgstr "عنوان الموقع"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_alert__maintenance_ids
+msgid "Maintenance"
+msgstr "الصيانة"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_alert__maintenance_count
+msgid "Maintenance Count"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_maintenance_request
+msgid "Maintenance Request"
+msgstr "طلب الصيانة"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__measure_frequency_unit
+msgid "Measure Frequency Unit"
+msgstr "قياس وحدة التواتر "
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "Message At Fail'"
+msgstr "رسائل عند الفشل"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_branches
+msgid "Name..."
+msgstr "....الاسم"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__next_create_time
+msgid "Next Check at"
+msgstr "الفحص القادم عند"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__picking_type_id
+msgid "Operation Type"
+msgstr "نوع العملية"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__picking_type_ids
+msgid "Operation Types"
+msgstr "أنواع العمليات"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "Order #"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__pass_bool
+msgid "Pass"
+msgstr "نجح"
+
+#. module: dan_adj
+#: model:ir.model.fields.selection,name:dan_adj.selection__quality_point__measure_frequency_unit__p_days
+msgid "Periodic Days"
+msgstr "تكرار بالايام"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "Preventative Action"
+msgstr "الإجراءات الوقائية"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_quality_alert
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__alert_id
+msgid "Quality Alert"
+msgstr "تنبيه الجودة"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_quality_check
+msgid "Quality Check"
+msgstr "فحص الجودة"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_quality_point
+msgid "Quality Control Point"
+msgstr "نقطة مراقبة الجودة"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__quality_control_related_ids
+msgid "Quality Point Related"
+msgstr "نقطة الجودة ذات صلة"
+
+#. module: dan_adj
+#: model:ir.actions.act_window,name:dan_adj.quality_type_action
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__quality_type_id
+#: model:ir.ui.menu,name:dan_adj.menu_quality_type
+msgid "Quality Type"
+msgstr "نوع الجودة"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "Quantity"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "Quotation #"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__res_id
+#: model:ir.model.fields,field_description:dan_adj.field_branch__user_id
+msgid "Responsible"
+msgstr "مسئول"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسئول"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__many_user_id
+msgid "Responsibles"
+msgstr "المسئولين"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_sale_order
+msgid "Sale Order"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit_line__serial
+msgid "Serial"
+msgstr "م"
+
+#. module: dan_adj
+#: model:ir.model.fields.selection,name:dan_adj.selection__quality_point__measure_frequency_unit__shift
+msgid "Shift"
+msgstr "شيفت"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__employee_sign
+#: model:ir.model.fields,field_description:dan_adj.field_training__manager_sign
+msgid "Sign"
+msgstr "توقيع"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__employee_sign_name
+#: model:ir.model.fields,field_description:dan_adj.field_training__manager_sign_name
+msgid "Signed By"
+msgstr "توقيع بواسطة"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__date_employee_sign
+#: model:ir.model.fields,field_description:dan_adj.field_training__date_manager_sign
+msgid "Signed Date"
+msgstr "تاريخ توقيع "
+
+#. module: dan_adj
+#: code:addons/dan_adj/model/website_sale.py:0
+#, python-format
+msgid "Some required fields are empty."
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_transfer_wizard__location_id
+msgid "Source Location"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: dan_adj
+#: model:res.groups,name:dan_adj.group_stump
+msgid "Stump in reports"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__tags
+#: model:ir.model.fields,field_description:dan_adj.field_branch__tags
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__tags
+msgid "Tags"
+msgstr "العلامات"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "Taxes"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__time
+msgid "Time"
+msgstr "الوقت"
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "توقيع المتدرب"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.actions.act_window,name:dan_adj.training_action
+#: model:ir.ui.menu,name:dan_adj.menu_training
+msgid "Training"
+msgstr "التدريب"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_stock_picking
+msgid "Transfer"
+msgstr "الشحنة"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__audit_type_id
+#: model:ir.model.fields,field_description:dan_adj.field_training__type
+msgid "Type"
+msgstr "النوع"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_type__name
+msgid "Type name"
+msgstr "اسم النوع"
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.report_saleorder_document_company_paper
+msgid "Unit Price"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,help:dan_adj.field_training__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__notes
+msgid "What the employee has been trained on"
+msgstr "ما تم تدريب الموظف عليه"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_audit
+msgid "audit"
+msgstr "اوديت"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_check__audit_name
+msgid "audit name"
+msgstr "اسم الاوديت"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_audit_line
+msgid "audit.line"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_audit_type
+msgid "audit.type"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_branch
+msgid "branch"
+msgstr "الفرع"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__check_ids
+msgid "check Points"
+msgstr "نقاط الفحص"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_training__code
+msgid "code"
+msgstr "الكود"
+
+#. module: dan_adj
+#: model:ir.model.fields.selection,name:dan_adj.selection__training__type__b
+msgid "corrective"
+msgstr "تصحيحي"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_days
+msgid "days"
+msgstr "الايام"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_division
+msgid "division"
+msgstr "القسم"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__last_create_time
+msgid "last Check at"
+msgstr "اخر فحص عند"
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_audit__name
+#: model:ir.model.fields,field_description:dan_adj.field_audit_type__name
+#: model:ir.model.fields,field_description:dan_adj.field_branch__name
+#: model:ir.model.fields,field_description:dan_adj.field_days__name
+#: model:ir.model.fields,field_description:dan_adj.field_division__name
+#: model:ir.model.fields,field_description:dan_adj.field_training__name
+msgid "name"
+msgstr "الاسم"
+
+#. module: dan_adj
+#: model:ir.model.fields.selection,name:dan_adj.selection__training__type__a
+msgid "preventive"
+msgstr "وقائي"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_quality_type
+msgid "quality.type"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_traning
+msgid "signatures"
+msgstr "التوقيعات"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_training
+msgid "training"
+msgstr "التدريب"
+
+#. module: dan_adj
+#: model:ir.model,name:dan_adj.model_transfer_wizard
+msgid "transfer.wizard"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.actions.report,name:dan_adj.action_report_sale_company_paper
+msgid "الطباعة علي ورق الشركة"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.internal_layout_custom
+msgid ""
+"المجموعة للأغذيه والعصائر ٥٧ المنطقه الصناعيه القاهره الجديده القاهره س . ج ٧٩٤٧٣ ب . ض ٩٠٥- ٤٠٩ - ٤٨٤ ت\n"
+"                ٠١٠٠٠٧١٠٩٩٧"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__job_position_id
+msgid "المسمي الوظيفي"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.view_quality_alert_custom
+msgid "انشاء طلب صيانة"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_sale_order__journal_ids
+#: model:ir.model.fields,field_description:dan_adj.field_sale_order__journal_ids_filter
+msgid "دفتر اليومية"
+msgstr ""
+
+#. module: dan_adj
+#: model_terms:ir.ui.view,arch_db:dan_adj.internal_layout_custom
+msgid ""
+"شركة المجــموعــة\n"
+"                    <br/>\n"
+"                    للأغذية والعصائـر\n"
+"                    <br/>\n"
+"                    س.ت <span>79473</span>القاهرة\n"
+"                    <br/>\n"
+"                    ب.ض 905-409-484"
+msgstr ""
+
+#. module: dan_adj
+#: model:ir.model.fields,field_description:dan_adj.field_quality_point__fail_many_user_id
+msgid "مسئولين تنبيهات الجودة"
+msgstr ""

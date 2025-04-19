@@ -1,0 +1,246 @@
+<odoo>
+    <data>
+        <template id="report_purchase_category">
+            <t t-call="web.html_container">
+
+
+                <t t-foreach="order" t-as="o">
+
+
+                    <t t-set="check" t-value="True"></t>
+                    <t t-foreach="categ_id" t-as="cat">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                                <t t-if="cat['order']==o">
+                                    <t t-if="check==True">
+                                        <t t-set="check" t-value="False"></t>
+                                        <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+                                        <t t-set="address">
+                                            <div t-field="o.partner_id"
+                                                 t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                                            <p t-if="o.partner_id.vat"><t
+                                                    t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>:
+                                                <span t-field="o.partner_id.vat"/>
+                                            </p>
+                                        </t>
+                                        <t t-if="o.dest_address_id">
+                                            <t t-set="information_block">
+                                                <strong>Shipping address:</strong>
+                                                <div t-if="o.dest_address_id">
+                                                    <div t-field="o.dest_address_id"
+                                                         t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"
+                                                         name="purchase_shipping_address"/>
+                                                </div>
+
+                                            </t>
+                                        </t>
+
+                                        <div class="oe_structure"/>
+
+                                        <h2 t-if="o.state == 'draft'">Request for Quotation #
+                                            <span t-field="o.name"/>
+                                        </h2>
+                                        <h2 t-if="o.state in ['sent', 'to approve']">Purchase Order #
+                                            <span t-field="o.name"/>
+                                        </h2>
+                                        <h2 t-if="o.state in ['purchase', 'done']">Purchase Order #
+                                            <span t-field="o.name"/>
+                                        </h2>
+                                        <h2 t-if="o.state == 'cancel'">Cancelled Purchase Order #
+                                            <span t-field="o.name"/>
+                                        </h2>
+
+                                        <div id="informations" class="row mt32 mb32">
+                                            <div t-if="o.user_id" class="col-3 bm-2">
+                                                <strong>Purchase Representative:</strong>
+                                                <p t-field="o.user_id" class="m-0"/>
+                                            </div>
+                                            <div t-if="o.partner_ref" class="col-3 bm-2">
+                                                <strong>Your Order Reference:</strong>
+                                                <p t-field="o.partner_ref" class="m-0"/>
+                                            </div>
+                                            <div t-if="o.date_order" class="col-3 bm-2">
+                                                <strong>Order Date:</strong>
+                                                <p t-field="o.date_order" class="m-0"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                    <div>
+                                        <strong>Category:
+                                            <span t-field="cat['categ'].name"/>
+                                        </strong>
+
+                                    </div>
+
+                                    <table class="table table-sm o_main_table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <strong>Description</strong>
+                                                </th>
+                                                <!--                        <th name="th_taxes"><strong>Taxes</strong></th>-->
+                                                <!--                        <th name="th_date_req" class="text-center"><strong>Date Req.</strong></th>-->
+                                                <th>
+                                                    <strong>Qty</strong>
+                                                </th>
+                                                <th>
+                                                    <strong>Unit Price</strong>
+                                                </th>
+                                                <th>
+                                                    <strong>Amount</strong>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="subtotal" t-value="0"/>
+                                            <t t-set="total" t-value="0"/>
+                                            <t t-foreach="product_ids" t-as="pro">
+                                                <t t-if="cat['categ']==pro['categ_id']">
+                                                    <!--                                    <t t-set="subtotal" t-value="subtotal+pro['price_subtotal']"/>-->
+                                                    <t t-set="total" t-value="total+pro['total']"/>
+
+                                                    <tr>
+                                                        <td>
+                                                            <span t-esc="pro['product_id']"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="pro['product_qty']"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="pro['price_unit']"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-esc="pro['price_subtotal']"/>
+                                                        </td>
+                                                    </tr>
+
+
+                                                </t>
+                                            </t>
+                                        </tbody>
+                                    </table>
+
+                                    <div id="total" class="row justify-content-end">
+                                        <br></br>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="col-4">
+                                            <table class="table table-sm">
+                                                <!--                        <tr class="border-black">-->
+                                                <!--                            <td name="td_subtotal_label"><strong>Subtotal</strong></td>-->
+                                                <!--                            <td>-->
+                                                <!--                                <span t-esc="subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>-->
+                                                <!--                            </td>-->
+                                                <!--                        </tr>-->
+                                                <!--                        <tr>-->
+                                                <!--                            <td name="td_taxes_label">Taxes</td>-->
+                                                <!--                            <td   >-->
+                                                <!--                                <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>-->
+                                                <!--                            </td>-->
+                                                <!--                        </tr>-->
+                                                <tr class="border-black o_total">
+                                                    <td name="td_amount_total_label">
+                                                        <strong>Total</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc='total'
+                                                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+                    </t>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <t t-if="no_categ_pro">
+                        <t t-set="subtotal" t-value="0"/>
+                        <t t-set="total" t-value="0"/>
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                                <table class="table table-sm o_main_table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <strong>Description</strong>
+                                            </th>
+                                            <!--                        <th name="th_taxes"><strong>Taxes</strong></th>-->
+                                            <!--                        <th name="th_date_req" class="text-center"><strong>Date Req.</strong></th>-->
+                                            <th>
+                                                <strong>Qty</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Unit Price</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Amount</strong>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="no_categ_pro" t-as="no_pro">
+                                            <!--                                  <t t-set="subtotal" t-value="subtotal+pro['price_subtotal']"/>-->
+                                            <t t-set="total" t-value="total+no_pro['total']"/>
+
+
+                                            <tr>
+                                                <td>
+                                                    <span t-esc="no_pro['product_id']"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="no_pro['product_qty']"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="no_pro['price_unit']"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="no_pro['price_subtotal']"/>
+                                                </td>
+                                            </tr>
+
+
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <div id="total" class="row justify-content-end">
+                                    <div class="col-4">
+                                        <table class="table table-sm">
+                                            <!--                        <tr class="border-black">-->
+                                            <!--                            <td name="td_subtotal_label"><strong>Subtotal</strong></td>-->
+                                            <!--                            <td   >-->
+                                            <!--                                <span t-esc="subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>-->
+                                            <!--                            </td>-->
+                                            <!--                        </tr>-->
+                                            <!--                        <tr>-->
+                                            <!--                            <td name="td_taxes_label">Taxes</td>-->
+                                            <!--                            <td   >-->
+                                            <!--                                <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>-->
+                                            <!--                            </td>-->
+                                            <!--                        </tr>-->
+                                            <tr class="border-black o_total">
+                                                <td name="td_amount_total_label">
+                                                    <strong>Total</strong>
+                                                </td>
+                                                <td>
+                                                    <span t-esc='total'
+                                                          t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </t>
+
+                    </t>
+                </t>
+
+            </t>
+        </template>
+    </data>
+</odoo>

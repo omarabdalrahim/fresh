@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="instruction_view_tree" model="ir.ui.view">
+            <field name="name">instruction_view_tree</field>
+            <field name="model">band.instruction</field>
+            <field name="arch" type="xml">
+                <tree string="instruction_tree">
+                    <field name="name"/>
+                    <field name="code" optional="show"/>
+                    <field name="work_description" optional="show"/>
+
+                    <field name="position_create" optional="show"/>
+                    <field name="sign_create" optional="show"/>
+                    <field name="sign_date" optional="hide"/>
+                    <field name="previewed_by" optional="hide"/>
+                    <field name="sign_previewed" optional="hide"/>
+                    <field name="date_previewed" optional="hide"/>
+                    <field name="action_id" optional="hide"/>
+                    <field name="model_action_id" optional="hide"/>
+                    <field name="standards" optional="hide"/>
+                    <field name="certificate" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+        <record id="instruction_view_form" model="ir.ui.view">
+            <field name="name">instruction_view_form</field>
+            <field name="model">band.instruction</field>
+            <field name="arch" type="xml">
+                <form string="instruction_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code" readonly="1"/>
+                            <field name="work_description"/>
+                            <field name="work_description"/>
+
+                        </group>
+                        <group>
+                            <group string="Prepared By">
+                                <field name="create_uid"/>
+                                <field name="position_create"/>
+                                <field name="sign_create" widget="signature"/>
+                                <field name="sign_date"/>
+
+                            </group>
+                            <group string="Preview By">
+
+                                <field name="previewed_by"/>
+
+                                <field name="sign_previewed" widget="signature"/>
+                                <field name="date_previewed"/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <field name="action_id"/>
+                            <field name="model_action_id"/>
+                            <field name="standards"/>
+                            <field name="certificate"/>
+                        </group>
+
+                    </sheet>
+                     <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="instaruction_action" model="ir.actions.act_window">
+            <field name="name">التعليمات</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">band.instruction</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_instaruction" name=" التعليمات" parent="quality_control.menu_quality_configuration"
+                  action="instaruction_action" sequence="27"/>
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_danfersh_custom_danfersh_custom,danfersh_custom.danfersh_custom,model_sale_wizard,base.group_user,1,1,1,1
+access_danfersh_custom_danfersh_custom_search,danfersh_custom.danfersh_custom,model_res_partner_search,base.group_user,1,1,1,1
+access_danfersh_register_payroll,danfersh_custom.access_danfersh_register_payroll,model_account_payment_register_payslip,base.group_user,1,1,1,1

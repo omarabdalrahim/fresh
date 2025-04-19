@@ -1,0 +1,116 @@
+<odoo>
+
+
+    <template id="report_saleorder_prepared">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+                    <table class="table table-sm o_main_table">
+                        <thead>
+                            <thead>
+                                <tr>
+                                    <th name="th_description" class="text-left"
+                                        style="border: 1px solid black;border-collapse: collapse;">#
+                                    </th>
+                                    <th name="th_description" class="text-left"
+                                        style="border: 1px solid black;border-collapse: collapse;">Product
+                                    </th>
+                                    <th name="th_quantity" class="text-left"
+                                        style="border: 1px solid black;border-collapse: collapse;">Quantity
+                                    </th>
+
+                                </tr>
+                            </thead>
+                        </thead>
+                        <tbody>
+                            <t t-set="i" t-value="0"/>
+                            <t t-foreach="lst" t-as="l">
+                                <t t-set="i" t-value="i+1"/>
+                                <tr>
+                                    <td>
+                                        <span t-esc="i"/>
+                                    </td>
+                                    <td>
+
+                                        <span t-esc="l['product_id'].name"/>
+                                    </td>
+                                    <td>
+
+                                        <span t-esc="l['qty']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+
+                    <t t-set="i" t-value="0"/>
+
+
+                    <table class="table table-sm o_main_table">
+                        <thead>
+                            <tr>
+                                <th class="text-left"
+                                    style="border: 1px solid black;border-collapse: collapse;">#
+                                </th>
+                                <th name="th_description" class="text-left"
+                                    style="border: 1px solid black;border-collapse: collapse;">Product
+                                </th>
+                                <th name="th_quantity" class="text-left"
+                                    style="border: 1px solid black;border-collapse: collapse;">Quantity
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+                            <t t-foreach="product_list" t-as="product">
+                                <t t-set="current_subtotal" t-value="0"/>
+                                <tr>
+                                    <t t-set="i" t-value="i+1"/>
+                                    <td>
+                                        <span t-esc="i"/>
+                                    </td>
+                                    <td name="td_name" class="test-center"
+                                        style="border: 1px solid black;border-collapse: collapse;">
+                                        <span t-field="product['product_id'].name"/>
+                                    </td>
+                                    <td name="td_name" class="test-center"
+                                        style="border: 1px solid black;border-collapse: collapse;">
+
+
+                                        <span t-esc="product['qty']"/>
+                                    </td>
+                                </tr>
+                            </t>
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <report
+            id="action_report_saleorder_prepared"
+            string="التجهيزات"
+            model="sale.order"
+            report_type="qweb-pdf"
+            file="prepared_product_so.report_saleorder_prepared"
+            name="prepared_product_so.report_saleorder_prepared"
+            print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+    />
+</odoo>

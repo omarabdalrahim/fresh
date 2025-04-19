@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- this xml display selected quatation reason in sale order form  -->
+<!--        <record id="view_sale_inherit_custom" model="ir.ui.view">-->
+<!--                <field name="name">sale.order.form</field>-->
+<!--                <field name="model">sale.order</field>-->
+<!--                <field name="inherit_id" ref = "sale.view_order_form"/>-->
+<!--                <field name="arch" type="xml">-->
+<!--                        <xpath expr ="//field[@name='date_order']" position="after">-->
+<!--                                <field name="journal_ids_filter"  invisible="1" widget="many2many_tags"/>-->
+<!--                                <field name="journal_ids"  invisible="1" widget="many2many_tags"/>-->
+<!--                        </xpath>-->
+<!--                </field>-->
+<!--        </record>-->
+
+                <record id="tree_sale_inherit" model="ir.ui.view">
+                <field name="name">sale.order.form</field>
+                <field name="model">sale.order</field>
+                <field name="inherit_id" ref = "sale.view_order_tree"/>
+                <field name="arch" type="xml">
+                        <xpath expr ="//field[@name='date_order']" position="after">
+                                <field name="journal_ids_filter"  invisible="0" widget="many2many_tags"/>
+                                <field name="journal_ids"  invisible="0" widget="many2many_tags"/>
+                        </xpath>
+                </field>
+        </record>
+
+<!--           <record id="partner_inherit" model="ir.ui.view">-->
+<!--                <field name="name">partner.form</field>-->
+<!--                <field name="model">res.partner</field>-->
+<!--                <field name="inherit_id" ref = "base.view_partner_form"/>-->
+<!--                <field name="arch" type="xml">-->
+<!--                        <xpath expr ="//field[@name='vat']" position="after">-->
+<!--                                <field name="url"/>-->
+<!--                        </xpath>-->
+<!--                </field>-->
+<!--        </record>-->
+
+
+</odoo>

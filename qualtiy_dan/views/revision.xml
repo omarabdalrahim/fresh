@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="revision_view_tree" model="ir.ui.view">
+            <field name="name">_view_tree</field>
+            <field name="model">page.revision</field>
+            <field name="arch" type="xml">
+                <tree string="_tree">
+                    <field name="name"/>
+                    <field name="url"/>
+                    <field name="other"/>
+                    <field name="create_uid"/>
+                    <field name="write_uid"/>
+                </tree>
+            </field>
+        </record>
+        <record id="revisojn_view_form" model="ir.ui.view">
+            <field name="name">revisojn_view_form</field>
+            <field name="model">page.revision</field>
+            <field name="arch" type="xml">
+                <form string="revisojn_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="url"/>
+                            <field name="other"/>
+                            <field name="create_uid"/>
+                            <field name="write_uid"/>
+
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="page_revision_action" model="ir.actions.act_window">
+            <field name="name">المراجع</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">page.revision</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_page_revision_" name=" المراجع"
+                  action="page_revision_action"
+                  parent="quality_control.menu_quality_configuration"
+                  sequence="20"/>
+    </data>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+      <record id="attendance_audit_form_view" model="ir.ui.view">
+        <field name="name">attendance_audit_form_view</field>
+        <field name="model">audit.attendance</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="برجاء التحقق من التالي">
+<!--                <field name="have_audit"/>-->
+<!--                <field name="next_action"/>-->
+                <field name="check_ids" force_save="1" >
+                    <list editable="bottom" delete="0" create="0">
+                        <field name="control_id" readonly="1" force_save="1"/>
+                        <field name="control_name" readonly="1" force_save="1"/>
+                        <field name="pass_bool"/>
+                        <field name="fail_bool"/>
+                    </list>
+                </field>
+
+                <footer colspan="2" col="3">
+                    <button string="الغاء" special="cancel" />
+                    <button string="تم الاجابة" name="done" type="object" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+
+</odoo>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="qualti_reason_fial_view_form" model="ir.ui.view">
+        <field name="name">_view_form</field>
+        <field name="model">quality.check</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <form string="_form">
+                <sheet>
+                    <group>
+                        <field name="reason" required="1"/>
+
+                    </group>
+                    <footer>
+                        <button string='Fail' name='do_fail_open_alert' type='object' class='btn-primary'/>
+                        <button string='Cancel' class='btn-default' special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Inherit Form View to Modify it -->
+    <record id="quality_check_view_form_reaons" model="ir.ui.view">
+        <field name="name">quality_check_view_form_reaons</field>
+        <field name="model">quality.check</field>
+        <field name="inherit_id" ref="quality_control.quality_check_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='do_fail']" position="replace">
+                <button name="fail_reason" type="object" class="btn-primary"
+                        attrs="{'invisible': [('quality_state', '!=', 'none')]}" string="Fail" data-hotkey="w"/>
+
+            </xpath>
+            <field name="measure_on" position="after">
+                <field name="reason" attrs="{'invisible':[('quality_state','!=','fail')]}"/>
+            </field>
+
+            <page name="notes" position="before">
+                <page name="product_info" string="Product Info" attrs="{'invisible':[('product_id','=',False)]}">
+                   <group>
+                    <field name="qty"  readonly="1" force_save="1"/>
+                    </group>
+                              <field name="move_raw_ids" readonly="1" force_save="1">
+                                  <tree>
+                                      <field name="product_id"/>
+                                      <field name="location_id"/>
+                                      <field name="product_uom_qty"/>
+                                      <field name="product_uom"/>
+                                      <field name="quantity_done"/>
+                                  </tree>
+                                 </field>
+                </page>
+            </page>
+
+
+        </field>
+    </record>
+
+    <record id="view_quality_alert_custom" model="ir.ui.view">
+        <field name="name">quality.point.alert.form</field>
+        <field name="model">quality.alert</field>
+        <field name="inherit_id" ref="quality_control.quality_alert_view_form"/>
+        <field name="arch" type="xml">
+            <button name="action_see_check" position="after">
+                <button name="return_main_ids" type="object"
+                        class="oe_stat_button" icon="fa-wrench">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="maintenance_count" readonly="1"/>
+                        </span>
+                        <span class="o_stat_text">طلبات الصيانة</span>
+                    </div>
+                </button>
+            </button>
+            <xpath expr="//header" position="inside">
+                <button name="create_maintenance" type="object"
+                        class="oe_stat_button" string="انشاء طلب صيانة"
+                        icon="fa-wrench"/>
+            </xpath>
+            <field name="name" position="after">
+                <field name="maintenance_ids" invisible="1"/>
+
+            </field>
+            <field name="title" position="after">
+                <field name="reason"/>
+
+                <field name="branch_id"/>
+            </field>
+        </field>
+    </record>
+
+
+    <record id="view_maintenance" model="ir.ui.view">
+        <field name="name">view_maintenance</field>
+        <field name="model">maintenance.request</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="alert_id" readonly="1" force_save="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_quality_custom" model="ir.ui.view">
+        <field name="name">quality.point.form</field>
+        <field name="model">quality.point</field>
+        <field name="inherit_id" ref="quality.quality_point_view_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="get_alerts" type="object"
+                        class="oe_stat_button" icon="fa-bell">
+                    <span>Alerts</span>
+
+                </button>
+            </div>
+            <xpath expr="//field[@name='user_id']" position='after'>
+                <field name="days_ids" widget="many2many_tags"
+                       attrs="{'invisible': [('measure_frequency_unit', '!=', 'p_days')]}"/>
+                <field name="many_user_id" widget="many2many_tags"/>
+                <field name="fail_many_user_id" widget="many2many_tags"/>
+                <field name="auto_check_point_day" attrs="{'invisible': [('measure_frequency_unit', '!=', 'p_days')]}"/>
+                <field name="auto_check_point" attrs="{'invisible': [('measure_frequency_unit', '=', 'p_days')]}"/>
+                <field name="next_create_time" invisible="0"/>
+                <field name="last_create_time" invisible="1"/>
+                <!--                <button name="corn_create_check_point" string="test"/>-->
+                <!--                                <button name="corn_create_check_point" string="test" type="object"-->
+                <!--                                        icon="fa-refresh text-primary"/>-->
+
+
+            </xpath>
+            <field name="company_id" position="after">
+                <field name="job_position_id" widget="many2many_tags"/>
+                <field name="add_related_points" invisible="1"/>
+                <field name="quality_control_related_ids" widget="many2many_tags"
+                       attrs="{'invisible': [('add_related_points','=',False)]}"/>
+                <field name="branch_id"/>
+                <field name="division_ids" widget="many2many_tags"/>
+                <field name="tags" widget="many2many_tags"/>
+            </field>
+            <field name="title" position="after">
+                <field name="quality_type_id" options="{'no_create': True,'no_open':True}" required="1"/>
+            </field>
+            <field name="tags" position="after">
+                <field name="equipment_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_maintenance_equipment" model="ir.ui.view">
+        <field name="name">view_maintenance_equipment</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <field name="workcenter_id" position="after">
+                <field name="machine_dep_id" required="1"/>
+                <field name="machine_id" required="1"/>
+                <field name="machine_type_id"/>
+                <field name="operation_type_id" required="1"/>
+            </field>
+        </field>
+    </record>
+
+
+
+
+    <record id="view_config_setting" model="ir.ui.view">
+        <field name="name">res.config.settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="mrp.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='work_order']" position="after">
+                <div class="col-lg-6 col-12 o_setting_box" id="related_control_point">
+                    <div class="o_setting_left_pane">
+                        <field name="add_related_control_point"/>
+                    </div>
+                    <div class="o_setting_right_pane" id="workorder_settings">
+                        <label for="add_related_control_point" string="Add Quality control points"/>
+                        <div class="text-muted">
+                            Add Quality Point Related Field in Quality control points
+                        </div>
+                    </div>
+                </div>
+
+            </xpath>
+        </field>
+    </record>
+
+    <!--    quality type action and menuitem-->
+    <record id="quality_type_action" model="ir.actions.act_window">
+        <field name="name">Quality Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">quality.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_quality_type" name="Quality Type"
+              parent="quality_control.menu_quality_configuration"
+              action="quality_type_action"/>
+
+     <record id="machine_action" model="ir.actions.act_window">
+        <field name="name">المعدات</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">machine</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_machine" name="المعدات"
+              parent="maintenance.menu_maintenance_configuration"
+              action="machine_action"/>
+
+     <record id="machine_dep_action" model="ir.actions.act_window">
+        <field name="name">اقسام المكنه</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">machine.dep</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_machine_dep" name="اقسام المكنه"
+              parent="maintenance.menu_maintenance_configuration"
+              action="machine_dep_action"/>
+
+     <record id="machine_type_action" model="ir.actions.act_window">
+        <field name="name">نوع المعده</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">machine.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_machine_type" name="نوع المعده"
+              parent="maintenance.menu_maintenance_configuration"
+              action="machine_type_action"/>
+
+     <record id="operation_type_action" model="ir.actions.act_window">
+        <field name="name">نوع العملية</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">operation.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_operation_type" name="نوع العملية"
+              parent="maintenance.menu_maintenance_configuration"
+              action="operation_type_action"/>
+
+</odoo>

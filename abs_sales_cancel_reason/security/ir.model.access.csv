@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_quotation_cancel_reason,access_quotation_cancel_reason,model_quotation_cancel_reason,,1,1,1,1
+access_quotation_cancel,access_quotation_cancel,model_add_quotation_reason,,1,1,1,1

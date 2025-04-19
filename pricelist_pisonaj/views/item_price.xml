@@ -1,0 +1,13 @@
+<odoo>
+
+<record id="product_product_inherit_new_uom" model="ir.ui.view">
+            <field name="name">product_product_inherit_new_uom</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="uom_id" position="after">
+                    <field name="uom_id_new"/>
+                </field>
+            </field>
+</record>
+</odoo>

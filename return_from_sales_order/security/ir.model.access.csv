@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_return_from_sales_order_return_from_sales_order,return_from_sales_order.return_from_sales_order,model_sales_order_return,base.group_user,1,1,1,1
+access_product_change,return_from_sales_order.access_product_change,model_product_change,base.group_user,1,1,1,1

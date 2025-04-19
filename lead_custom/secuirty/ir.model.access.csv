@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_survey_sheet,access_survey_sheet,model_survey_sheet,helpdesk.group_helpdesk_user,1,1,1,1
+access_survey_sheet_line,access_survey_sheet_line,model_survey_sheet_line,helpdesk.group_helpdesk_user,1,1,1,1
+access_survey_sheet_line_location,access_survey_sheet_line_location,model_survey_sheet_location,helpdesk.group_helpdesk_user,1,1,1,1

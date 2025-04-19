@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_traning" model="ir.ui.view">
+        <field name="name">quality.training</field>
+        <field name="model">training</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="code" readonly="1" force_save="1"/>
+                            <br/>
+                            <!--                        <field name="name" required="1" placeholder="Name..."/>-->
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id" required="1"/>
+                            <field name="date" required="1"/>
+                            <field name="type" required="1"/>
+                        </group>
+                        <group>
+                            <field name="control_ids"
+                                   widget="many2many_tags"/>
+                            <field name="alert_ids" attrs="{'invisible': [('type', '!=', 'b')]}"
+                                   widget="many2many_tags"/>
+                            <field name="check_ids" widget="many2many_tags"/>
+                            <field name="notes"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="التوقيع">
+                            <group>
+                                <group string="توقيع المتدرب">
+                                    <field name="employee_sign_name"/>
+                                    <field name="date_employee_sign"/>
+                                    <field name="employee_sign" widget="image"/>
+                                </group>
+                                <group string="توقيع المدرب">
+                                    <field name="manager_sign_name"/>
+                                    <field name="date_manager_sign"/>
+                                    <field name="manager_sign" force_save="1" widget="image"/>
+                                </group>
+                            </group>
+                        </page>
+                         <page string="تعليمات" name="instructions" attrs="{'invisible': [('type', '!=', 'a')]}">
+                            <field name="control_note" />
+                        </page>
+                         <page string="رسائل في حالة الفشل" name="message" attrs="{'invisible': [('type', '!=', 'a')]}">
+                            <field name="control_message"  />
+                        </page>
+                        <page string="ملاحظات" name="Notes" attrs="{'invisible': [('type', '!=', 'a')]}">
+                            <field name="control_reason" />
+                        </page>
+
+                          <page string="الوصف"  attrs="{'invisible': [('type', '!=', 'b')]}">
+                            <field name="alert_desc" />
+                        </page>
+                         <page string="اجرائات تصحيحية"  attrs="{'invisible': [('type', '!=', 'b')]}">
+                            <field name="alert_corrective"  />
+                        </page>
+                        <page string="اجرائات وقائية"  attrs="{'invisible': [('type', '!=', 'b')]}">
+                            <field name="alert_preve" />
+                        </page>
+
+                    </notebook>
+
+                </sheet>
+                  <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="training_action" model="ir.actions.act_window">
+        <field name="name">تدريب</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">training</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_training" name="تدريب"
+              parent="quality_control.menu_quality_root"
+              action="training_action"
+              sequence="4"/>
+
+
+</odoo>

@@ -1,0 +1,48 @@
+<odoo>
+    <record id="print_list_discout" model="ir.ui.view">
+            <field name="name">print_list_discout</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <field name="discount"/>
+
+                </field>
+            </field>
+     </record>
+ <record id="product_price_list_purchase_price" model="ir.ui.view">
+            <field name="name">	product.product_pricelist_item_form_view</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='fixed_price']" position="after">
+
+                     <field name="puchase_price" invisible="compute_price != 'Purchase Price'"/>
+                    <button type="object" name="update_purchase_order" string="Update" class="btn-primary" invisible="compute_price != 'Purchase Price'"/>
+                    <field name="amount_list"  invisible="compute_price != 'Purchase Price'" required="compute_price =='Purchase Price'"/>
+                    <field name="amount"  invisible = "compute_price !='Purchase Price' and amount_list !='Amount'" required="amount_list =='Amount'"/>
+                    <field name="precentage" invisible="compute_price !='Purchase Price' and amount_list =='Amount'" required="amount_list !='Amount'"/>
+
+                </xpath>
+
+            </field>
+        </record>
+
+    <record id="update_pricelist_purchase_price" model="ir.ui.view">
+            <field name="name">	product.product_pricelist_item_form_view</field>
+            <field name="model">product.pricelist.item</field>
+           <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="update_price"/>
+
+                    </group>
+                    <footer>
+                        <button special="cancel" string="Cancel" />
+<button name="action_save" type="object" string="Save"/>
+                    </footer>
+                </form>
+            </field>
+    </record>
+ </odoo>

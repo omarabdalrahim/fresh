@@ -1,0 +1,99 @@
+<odoo>
+<!--    <template id="report_saleorder_prepared_temp">-->
+<!--        <t t-call="web.external_layout">-->
+<!--            <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>-->
+<!--            &lt;!&ndash;            <t t-set="address">&ndash;&gt;-->
+<!--            &lt;!&ndash;                <div t-field="doc.partner_id"&ndash;&gt;-->
+<!--            &lt;!&ndash;                     t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>:&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <span t-field="doc.partner_id.vat"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </p>&ndash;&gt;-->
+<!--            &lt;!&ndash;            </t>&ndash;&gt;-->
+
+<!--            <div class="page">-->
+<!--                <div class="oe_structure"/>-->
+
+<!--                <h2 class="mt16">-->
+<!--                    <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">-->
+<!--                        <span t-if="doc.state not in ['draft','sent']">Order #</span>-->
+<!--                        <span t-if="doc.state in ['draft','sent']">Quotation #</span>-->
+<!--                    </t>-->
+
+<!--                    <span t-field="doc.name"/>-->
+<!--                </h2>-->
+
+
+<!--                <table class="table table-sm o_main_table">-->
+<!--                    <thead>-->
+<!--                        <tr>-->
+<!--                            <th name="th_description" class="text-left">Description</th>-->
+<!--                            <th name="th_quantity" class="text-left">Quantity</th>-->
+
+<!--                        </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody class="sale_tbody">-->
+
+<!--                        <t t-set="current_subtotal" t-value="0"/>-->
+
+<!--                        <t t-foreach="doc.order_line" t-as="line">-->
+
+
+
+<!--                                <t t-if="line.product_id.bom_ids">-->
+
+<!--                                    <t t-foreach="line.product_id.bom_ids.bom_line_ids" t-as="p">-->
+<!--                                        <tr>-->
+<!--                                            <td name="td_name" class="test-center">-->
+<!--                                                <span t-field="p.product_id.name"/>-->
+<!--                                            </td>-->
+<!--                                            <td name="td_name" class="test-center">-->
+<!--                                                <t t-set="i" t-value="0"/>-->
+<!--                                                <t t-set="i" t-value="round(p.product_qty*line.product_uom_qty,3)"/>-->
+<!--                                                <span t-esc="i"/>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                    </t>-->
+<!--                                </t>-->
+<!--&lt;!&ndash;                                <t t-if="not line.product_id.bom_ids">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <td name="td_name" class="test-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <span t-field="line.name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </td>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <td name="td_name" class="test-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <span t-field="line.product_uom_qty"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </td>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </t>&ndash;&gt;-->
+
+
+
+
+
+<!--                        </t>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+
+
+<!--            </div>-->
+<!--        </t>-->
+<!--    </template>-->
+
+
+<!--    <template id="report_saleorder_prepared">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-foreach="docs" t-as="doc">-->
+<!--                <t t-call="warehouse_at_salesorder.report_saleorder_prepared_temp" t-lang="doc.partner_id.lang"/>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+
+<!--    <report-->
+<!--            id="action_report_saleorder_prepared"-->
+<!--            string="التجهيزات"-->
+<!--            model="sale.order"-->
+<!--            report_type="qweb-pdf"-->
+<!--            file="warehouse_at_salesorder.report_saleorder_prepared"-->
+<!--            name="warehouse_at_salesorder.report_saleorder_prepared"-->
+<!--            print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"-->
+<!--    />-->
+</odoo>

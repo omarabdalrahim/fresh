@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="pisonaj_sum_report">
+
+
+          <t t-call="web.html_container">
+
+		 <t t-call="web.basic_layout">
+
+            <div  class="header">
+		      <div  class="text-center">
+						 <t t-if ="website_logo.logo">
+							   <div style="  text-align: center;">
+									   <img t-att-src="image_data_uri(website_logo.logo)" style="text-align: center" width="150px" height="80px"/></div></t>
+
+			  </div>
+				<div style="padding-left: 150px;" align="right" >
+					<br></br>
+					 <span  t-esc="time.strftime('%%Y-%%m-%%d')"/>: اسعار يـــوم
+
+				</div>
+		   </div>
+		<style type="text/css">
+
+#container {height: 100%; width:100%; font-size: 0;}
+#left, #middle, #right {display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size: 12px;}
+#left {width: 30px; background: #13D607;height:900px}
+#middle {width: 790px;border-style: solid;font-size:20px,height:900px}
+#right {width: 30px; background: #13D607;height:900px}
+td{
+			border: 1px solid black; border-radius:8px;height:180px;width:16%}
+
+			            table {
+  border: 1px solid black;
+  border-radius:6px;
+  border-collapse: collapse;
+			width: 790px;
+
+</style>
+
+
+
+
+        <t t-foreach="cate_id" t-as="cat">
+
+
+                <div class="page" style="bgcolor:green">
+
+					<div id="left">
+						 <p></p>
+					</div>
+                    <div id="middle" class="text-center">
+
+						<h3 align="center" style="fbackground-color:#13D607;font-style: italic;font-size:30px;color: green;" ><span t-esc="cat['cate_id'].name"/></h3>
+
+
+							<table align="left">
+
+                  <thead>
+						  <tr>
+
+							<th></th>
+							<th></th>
+
+                             <th></th>
+                            <th></th>
+						  </tr>
+				  </thead>
+
+                   <tbody>
+						  <t t-foreach="docs" t-as="line">
+
+								   <t t-if="cat['cate_id']==line['categ_id']">
+
+                                    <tr style="border: 1px solid black; border-radius:6px;height:180px;">
+                             <t t-foreach="line['line']" t-as="line">
+								 <t t-if=" line['page']==cat['page']">
+
+								  <td >
+
+									  <t t-if ="line['pro_id'].image_1024">
+										  <img t-att-src="image_data_uri(line['pro_id'].image_1024)"   width="80%" height="80%"/> <br></br></t>
+
+                                       <t t-if ="not line['pro_id'].image_1024">
+										 <img class="img" src="/pricelist_pisonaj/static/src/img/white.jpeg" width="80%" height="80%"/> <br></br>
+									   </t>
+
+
+									  <span style="vertical-align:bottom;font-style: italic;font-size:22px" t-esc="line['product_tmpl_id']"/>
+									  <br></br>
+									  	<span  style="font-size:18px;vertical-align:bottom;font-style: italic;font-size:18px" t-esc="line['fixed_price']"/>  - <span style="font-size:18px;vertical-align:bottom;font-style: italic;" t-esc="line['pro_id'].uom_id.name"/>
+
+
+
+
+								  </td>
+									 </t>
+
+
+							 </t>
+
+
+                                  </tr>
+
+								   </t></t>
+
+
+						  </tbody>
+					</table>
+
+
+					</div>
+					<div id="right">
+						<p></p>
+					</div>
+                </div>
+  </t>
+      <div class="footer">
+		      <p></p>
+		   </div>
+            </t>
+		 </t>
+
+
+
+    </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Translatable template -->
+
+
+
+</odoo>

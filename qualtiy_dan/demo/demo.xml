@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <record id="danfersh_custom.consu_delivery_01" model="visitor.question.line">
+            <field name="name">هل عانيت خالل اليام السبعه الماضيه من القئ و السهال او التهاب المعده؟</field>
+        </record>
+        <record id="danfersh_custom.consu_delivery_02" model="visitor.question.line">
+            <field name="name">هل كنت علي اتصال بشخص يعاني من المراض المذكوره ؟</field>
+        </record>
+        <record id="danfersh_custom.consu_delivery_03_vistor" model="visitor.question.line">
+            <field name="name">هل عانيت من اي التهابات جلد يه؟</field>
+        </record>
+        <record id="danfersh_custom.consu_delivery_04_vistor" model="visitor.question.line">
+            <field name="name">هل تعاني من اي التهاب في الذن او النف ا و الحلق؟</field>
+        </record>
+        <record id="danfersh_custom.consu_delivery_05_vistor" model="visitor.question.line">
+            <field name="name">هل تتناول حاليا اي دواء؟
+                )ل يمكن تناول الدويه في مناطق النتاج(
+            </field>
+        </record>
+        <record id="danfersh_custom.consu_delivery_06_vistor" model="visitor.question.line">
+            <field name="name">هل سافرت الي الخارج في السابيع الربعه الماضيه؟</field>
+        </record>
+        <record id="danfersh_custom.consu_delivery_07_vistor" model="visitor.question.line">
+            <field name="name">إذا كانت الجابه نعم .يمكنك كتابه اسم البلد او البلدان التي قمت بزيارتها</field>
+        </record>
+
+
+
+
+         <record id="qualtiy_dan.band_type_1" model="band.action.type">
+            <field name="name">كتابه</field>
+            <field name="type">writen</field>
+        </record>
+        <record id="qualtiy_dan.band_type_2" model="band.action.type">
+            <field name="name">صوره</field>
+            <field name="type">photo</field>
+        </record>
+         <record id="qualtiy_dan.band_type_3" model="band.action.type">
+            <field name="name">ملف</field>
+            <field name="type">file</field>
+        </record>
+        <record id="qualtiy_dan.band_type_4" model="band.action.type">
+            <field name="name">اضافه من مركز عمل</field>
+            <field name="type">work</field>
+        </record>
+        <record id="qualtiy_dan.band_type_5" model="band.action.type">
+            <field name="name">موظفين</field>
+            <field name="type">employee</field>
+        </record>
+        <record id="qualtiy_dan.band_type_6" model="band.action.type">
+            <field name="name">نقاط تحكم</field>
+            <field name="type">controlpoint</field>
+        </record>
+        <record id="qualtiy_dan.band_type_7" model="band.action.type">
+            <field name="name">اجراءات التكويد</field>
+            <field name="type">coding_action</field>
+        </record>
+        <record id="qualtiy_dan.band_type_8" model="band.action.type">
+            <field name="name">كود التعليمات</field>
+            <field name="type">coding_ins</field>
+        </record>  <record id="qualtiy_dan.band_type_9" model="band.action.type">
+            <field name="name">الادارات </field>
+            <field name="type">coding_ddd</field>
+        </record>
+    </data>
+</odoo>

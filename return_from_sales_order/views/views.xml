@@ -1,0 +1,104 @@
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_order_form_asasas" model="ir.ui.view">
+        <field name="name">view_order_form_asasas</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='action_view_invoice']" position="before">
+                <button type="object" name="view_retun_picking" class="oe_stat_button"
+                        icon="fa-truck" invisible="return_count == 0"
+                        groups="stock.group_stock_user">
+                    <field name="return_count" widget="statinfo" string="Return"/>
+                </button>
+            </xpath>
+            <xpath expr="//button[last()]" position="after">
+                <button name="view_return_last" type="object" string="Return" invisible="state in ('sale','done')"/>
+                <button name="view_return_last_change" type="object" string="  تبديل" invisible="state in ('sale','done')"/>
+<!--                <button name="return_delivery_sale_order_change" type="object" string="  تبديل" states="sale,done"/>-->
+                <!-- Add your fields or attributes here -->
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                <page string="Last Transfer" name="studio_page_8u00e">
+                    <group name="studio_group_8u00e">
+
+                        <field name="x_last_picking_id_1"/>
+                    </group>
+
+                </page>
+
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="return_sales_view_form" model="ir.ui.view">
+        <field name="name">return_sales_view_form</field>
+        <field name="model">sales.order.return</field>
+        <field name="arch" type="xml">
+            <form string="_form">
+                <sheet>
+                    <group>
+                        <field name="partner_id" readonly="1"/>
+                        <field name="sales_ids" readonly="1">
+
+
+                            <list>
+                                <button name="return_delivery_sale_order" type="object" string="Return Qty"    />
+                                <field name="name"/>
+<!--                                <field name="x_customer_order_delivery_date"/>-->
+                                <field name="partner_id"/>
+                                <field name="date_order"/>
+                                <field name="amount_total"/>
+                                <field name="state"/>
+
+                            </list>
+
+                        </field>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<!--    &lt;!&ndash; Inherit Form View to Modify it &ndash;&gt;-->
+<!--    <record id="view_stock_return_picking_form_sechudle" model="ir.ui.view">-->
+<!--        <field name="name">view_stock_return_picking_form_sechudle</field>-->
+<!--        <field name="model">stock.return.picking</field>-->
+<!--        <field name="inherit_id" ref="stock.view_stock_return_picking_form"/>-->
+<!--        <field name="arch" type="xml">-->
+
+<!--            <xpath expr="//field[@name='location_id']" position="before">-->
+<!--                <field name="scheduled_date"/>-->
+<!--                <field name="is_sales_order" invisible="1"/>-->
+<!--                <field name="change" />-->
+<!--&lt;!&ndash;                <field name="change_product_ids" >&ndash;&gt;-->
+<!--&lt;!&ndash;                    <tree editable="top">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <field name="product_id" required="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <field name="product_uom" required="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <field name="qty" required="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </tree>&ndash;&gt;-->
+<!--&lt;!&ndash;                </field>&ndash;&gt;-->
+<!--                &lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+<!--            </xpath>-->
+
+<!--        </field>-->
+<!--    </record>-->
+    <record id="sale_order_view_search_inherit_sale" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.sale</field>
+        <field name="model">sale.order</field>
+
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_sale_orders_filter']" position="after">
+
+                <filter string="المرتجع " name="return_count" domain="[('return_count','>',0)]"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

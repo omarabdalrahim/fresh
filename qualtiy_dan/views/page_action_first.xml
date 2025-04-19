@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="first_page_action_view_tree" model="ir.ui.view">
+            <field name="name">first_page_action_view_tree</field>
+            <field name="model">page.action.first</field>
+            <field name="arch" type="xml">
+                <tree string="_tree">
+                    <field name="name"/>
+                    <field name="name_arabic"/>
+                    <field name="action_id"/>
+                    <field name="export_date"/>
+                    <field name="export_name"/>
+                    <field name="page"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="first_page_action_view_form" model="ir.ui.view">
+            <field name="name">first_page_action_view_tree</field>
+            <field name="model">page.action.first</field>
+            <field name="arch" type="xml">
+                <form string="_tree">
+
+                    <sheet>
+                        <h1>SOPS</h1>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <center>
+                            <h3>
+                                <label for="name" string="الاسم بالعربي"/>
+                                <field name="name" required="1"/>
+                                <br></br>
+                                <label for="name_arabic" string="الاسم الانجليزي "/>
+                                <field name="name_arabic" required="1"/>
+                            </h3>
+                        </center>
+                        <group>
+                            <field name="action_id" required="1"/>
+                            <field name="export_date" required="1"/>
+                            <field name="export_name" required="1"/>
+<!--                            <field name="page" required="1"/>-->
+                            <field name="date" required="1"/>
+
+                        </group>
+                        <group>
+                            <group string="الاعداد">
+<!--                                <field name="editor_name" required="1"/>-->
+                                <field name="job_editor_name"/>
+                                <field name="sign_editor_name" widget="signature"/>
+                            </group>
+                            <group string="مراجع">
+                                <field name="revision_name"/>
+                                <field name="job_revision_name"/>
+                                <field name="sign_revision_name" widget="signature"/>
+                            </group>
+                            <group string="اعتماد">
+                                <field name="approved_name"/>
+                                <field name="job_approved_name"/>
+                                <field name="sign_approved_name" widget="signature"/>
+                            </group>
+                        </group>
+                        <field name="stamp" widget="image" class="oe_avatar"/>
+
+                        <notebook>
+                            <page string="">
+                                <field name="lines">
+                                    <tree create="false">
+                                        <field name="all_name" widget="html"  string="subject"/>
+                                        <field name="name" optional="hide"/>
+                                        <field name="type_ids" optional="hide" readonly="1" force_save="1" widget="many2many_tags"/>
+                                        <!--                                       <field name="type"/>-->
+                                        <field name="writen_check" invisible="1"/>
+                                        <field name="writen" widget="html" width="300px" optional="hide"
+                                               attrs="{'required':[('writen_check','=',True)],'readonly':[('writen_check','!=',True)]}"/>
+                                        <field name="photo_check" invisible="1"/>
+                                        <field name="photo" optional="hide"
+                                               attrs="{'required':[('photo_check','=',True)],'readonly':[('photo_check','!=',True)]}"/>
+                                        <field name="file_check" invisible="1"/>
+                                        <field name="file" optional="hide"
+                                               attrs="{'required':[('file_check','=',True)],'readonly':[('file_check','!=',True)]}"/>
+                                        <field name="work_check" invisible="1"/>
+                                        <field name="work" optional="hide"
+                                               attrs="{ 'readonly':[('work_check','!=',True)]}"/>
+                                          <field name="work_ids" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('work_check','=',True)],'readonly':[('work_check','!=',True)]}"/>
+                                        <field name="employee_check" invisible="1"/>
+                                        <field name="employee" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('employee_check','=',True)],'readonly':[('employee_check','!=',True)]}"/>
+                                        <field name="controlpoint_check" invisible="1"/>
+                                        <field name="controlpoint" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('controlpoint_check','=',True)],'readonly':[('controlpoint_check','!=',True)]}"/>
+                                        <field name="coding_action_check" invisible="1"/>
+                                        <field name="coding_action" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('coding_action_check','=',True)],'readonly':[('coding_action_check','!=',True)]}"/>
+                                        <field name="coding_ins_check" invisible="1"/>
+                                        <field name="coding_ins" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('coding_ins_check','=',True)],'readonly':[('coding_ins_check','!=',True)]}"/>
+                                        <field name="code_models_check" invisible="1"/>
+                                        <field name="code_models" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('code_models_check','=',True)],'readonly':[('code_models_check','!=',True)]}"/>
+                                        <field name="department_check" invisible="1"/>
+                                        <field name="department" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('department_check','=',True)],'readonly':[('department_check','!=',True)]}"/>
+                                        <field name="revision_check" invisible="1"/>
+                                        <field name="revision" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('revision_check','=',True)],'readonly':[('revision_check','!=',True)]}"/>
+                                        <field name="first_check" invisible="1"/>
+                                        <field name="first" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('first_check','=',True)],'readonly':[('first_check','!=',True)]}"/>
+
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="name" />
+                                                <field name="type_ids" readonly="1" force_save="1"
+                                                       widget="many2many_tags"/>
+                                                <!--                                       <field name="type"/>-->
+                                                <field name="writen_check" invisible="1"/>
+                                                <field name="writen" widget="html"
+                                                       attrs="{'required':[('writen_check','=',True)],'readonly':[('writen_check','!=',True)]}"/>
+                                                <field name="photo_check" invisible="1"/>
+                                                <field name="photo"
+                                                       attrs="{'required':[('photo_check','=',True)],'readonly':[('photo_check','!=',True)]}"/>
+                                                <field name="file_check" invisible="1"/>
+                                                <field name="file"
+                                                       attrs="{'required':[('file_check','=',True)],'readonly':[('file_check','!=',True)]}"/>
+                                                <field name="work_check" invisible="1"/>
+                                                <field name="work"
+                                                       attrs="{'required':[('work_check','=',True)],'readonly':[('work_check','!=',True)]}"/>
+                                                  <field name="work_ids" widget="many2many_tags" optional="hide"
+                                               attrs="{'required':[('work_check','=',True)],'readonly':[('work_check','!=',True)]}"/>
+                                                <field name="employee_check" invisible="1"/>
+                                                <field name="coding_action_check" invisible="1"/>
+                                                <field name="coding_action" widget="many2many_tags"
+                                                       attrs="{'required':[('coding_action_check','=',True)],'readonly':[('coding_action_check','!=',True)]}"/>
+                                                <field name="coding_ins_check" invisible="1"/>
+                                                <field name="coding_ins" widget="many2many_tags"
+                                                       attrs="{'required':[('coding_ins_check','=',True)],'readonly':[('coding_ins_check','!=',True)]}"/>
+                                                <field name="code_models_check" invisible="1"/>
+                                                <field name="code_models" widget="many2many_tags"
+                                                       attrs="{'required':[('code_models_check','=',True)],'readonly':[('code_models_check','!=',True)]}"/>
+                                                <field name="department_check" invisible="1"/>
+                                                <field name="department" widget="many2many_tags"
+                                                       attrs="{'required':[('department_check','=',True)],'readonly':[('department_check','!=',True)]}"/>
+
+                                            </group>
+                                            <group>
+
+                                                <field name="employee"
+                                                       attrs="{'required':[('employee_check','=',True)],'readonly':[('employee_check','!=',True)]}"/>
+                                                <field name="controlpoint_check" invisible="1"/>
+                                                <field name="controlpoint" widget="many2many_tags"
+                                                       attrs="{'required':[('controlpoint_check','=',True)],'readonly':[('controlpoint_check','!=',True)]}"/>
+                                                <field name="coding_action_check" invisible="1"/>
+                                                <field name="coding_action" widget="many2many_tags"
+                                                       attrs="{'required':[('coding_action_check','=',True)],'readonly':[('coding_action_check','!=',True)]}"/>
+                                                <field name="coding_ins_check" invisible="1"/>
+                                                <field name="coding_ins" widget="many2many_tags"
+                                                       attrs="{'required':[('coding_ins_check','=',True)],'readonly':[('coding_ins_check','!=',True)]}"/>
+
+
+                                                <field name="revision_check" invisible="1"/>
+                                                <field name="revision" widget="many2many_tags"
+                                                       attrs="{'required':[('revision_check','=',True)],'readonly':[('revision_check','!=',True)]}"/>
+                                                <field name="first_check" invisible="1"/>
+                                                <field name="first" widget="many2many_tags"
+                                                       attrs="{'required':[('first_check','=',True)],'readonly':[('first_check','!=',True)]}"/>
+                                            </group>
+                                        </group>
+
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+
+                </form>
+            </field>
+        </record>
+
+        <record id="page_action_action_first" model="ir.actions.act_window">
+            <field name="name">الصفحه الاولي</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">page.action.first</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_page_action" name="صفحه الاجراء"
+                  parent="quality_control.menu_quality_configuration"
+                   action="qualtiy_dan.page_action_action_first"
+                  sequence="23"/>
+<!--        <menuitem id="menu_page_action_first" name="الصفحه الاولي"-->
+<!--                  parent="qualtiy_dan.menu_page_action"-->
+<!--                  action="qualtiy_dan.page_action_action_first"-->
+<!--                  sequence="1"/>-->
+    </data>
+</odoo>

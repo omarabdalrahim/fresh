@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="seq_vistor" model="ir.sequence">
+            <field name="name">Visitor</field>
+            <field name="code">visitor</field>
+            <field name="prefix">v/</field>
+            <field name="padding">5</field>
+        </record>
+        <record id="vistor_contact_view_form" model="ir.ui.view">
+            <field name="name">vistor_contact_view_form</field>
+            <field name="model">res.partner</field>
+            <field name="priority">100000</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="mobile" required="1"/>
+                            <field name="email" required="1"/>
+                            <field name="function" required="1"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="vistor_view_tree" model="ir.ui.view">
+            <field name="name">vistor_view_tree</field>
+            <field name="model">visitor.question</field>
+            <field name="arch" type="xml">
+                <tree string="_tree">
+                    <field name="name"/>
+                    <field name="vistor_id"/>
+                    <field name="purpose"/>
+                    <field name="other_person"/>
+                    <field name="date_time"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="vistor_view_form" model="ir.ui.view">
+            <field name="name">vistor_view_form</field>
+            <field name="model">visitor.question</field>
+            <field name="arch" type="xml">
+                <form string="vistor_form">
+                    <sheet>
+                        <h2>
+                            <field name="name" readonly="1"/>
+                        </h2>
+                        <group>
+                            <group>
+
+                                <field name="company_name" required="1"/>
+                                <field name="vistor_id"
+                                       context="{'default_type':'private','default_parent_id':company_name,'form_view_ref':'qualtiy_dan.vistor_contact_view_form'}"/>
+                                <field name="function"/>
+                                <field name="purpose" required="1"/>
+                                <field name="other_person" required="1"
+                                       options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                            </group>
+                            <group>
+                                <field name="date_time"/>
+                                <!--                                <field name="due_date2"/>-->
+                                <!--                                <field name="num"/>-->
+                            </group>
+
+
+                        </group>
+                        <field name="line_ids" options="{  'no_create' : True}">
+                            <tree editable="top" create="false">
+                                <field name="name"/>
+                                <field name="check"/>
+                                <field name="no"/>
+                            </tree>
+                        </field>
+                        <br></br>
+                        <br></br>
+                        <field name="notes" readonly="1"/>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <field name="acceces_not" readonly="1"/>
+                        <br></br>
+                        <br></br>
+                        <group>
+                            <group>
+                                <field name="visitor_sign" widget="signature" required="1"/>
+                            </group>
+                            <group>
+                                <field name="other_sign" widget="signature" required="1"/>
+                            </group>
+
+                        </group>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="vistor_question_action" model="ir.actions.act_window">
+            <field name="name">استبيان الزوار</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">visitor.question</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_vistor_w" name="استبيان الزوار" parent="quality_control.menu_quality_configuration"
+                  action="vistor_question_action"
+                  sequence="20"/>
+    </data>
+</odoo>

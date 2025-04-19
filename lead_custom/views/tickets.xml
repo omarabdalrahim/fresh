@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+      <record id="ticket_crm_sales_order" model="ir.ui.view">
+        <field name="name">ticket_crm_sales_order</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form" />
+        <field name="arch" type="xml">
+
+		<xpath expr="//header/button[last()]" position="after">
+            <button class="oe_stat_button" name="action_create_sales" string="Create Sales Order" type="object"/>
+
+        </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+            <button name="action_view_quality" string="Quality" type="object" class="oe_stat_button"  invisible="x_count_quality == 0">
+                       <field name="x_count_quality"/>
+
+                            </button>
+
+
+        </xpath>
+		<xpath expr="//header/button[last()]" position="after">
+            <button class="oe_stat_button" name="create_quality" string="Create Qualtity" type="object"/>
+
+        </xpath>
+        </field>
+     </record>
+    </data>
+</odoo>

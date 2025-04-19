@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+      <record id="paperformat_invoice_sum" model="report.paperformat">
+            <field name="name">Stump format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">50</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+<report
+    id="invoice_sum"
+    model="account.move"
+    string="Invoice Sum"
+    report_type="qweb-pdf"
+    name="invoice_sum.invoice_sum_report"
+    file="invoice_sum.invoice_sum_report"
+     
+/>
+
+     <record id="invoice_sum.invoice_sum" model="ir.actions.report">
+        <field name="name">Invoice Sum</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">invoice_sum.invoice_sum_report</field>
+        <field name="paperformat_id" ref="invoice_sum.paperformat_invoice_sum"/>
+    </record>
+
+
+</odoo>

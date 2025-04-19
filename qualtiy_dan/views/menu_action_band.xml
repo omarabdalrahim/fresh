@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="band_action_action" model="ir.actions.act_window">
+            <field name="name">بنود الاجراءات</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">band.action</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_band_action" name="بنود الاجراءات" parent="quality_control.menu_quality_configuration"
+                  action="band_action_action" sequence="22"/>
+    </data>
+</odoo>

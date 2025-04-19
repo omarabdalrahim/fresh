@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+
+          <!-- Sequences for mgmtsystem.audit -->
+    <record id="seq_audit" model="ir.sequence">
+        <field name="name">Seq Audit</field>
+        <field name="code">audit</field>
+        <field name="prefix">AUDIT/</field>
+        <field name="padding">3</field>
+    </record>
+
+        <record id="seq_training" model="ir.sequence">
+        <field name="name">Seq Traning</field>
+        <field name="code">training</field>
+        <field name="prefix">Training/</field>
+        <field name="padding">3</field>
+    </record>
+
+          <record id="sunday_rec" model="days">
+            <field name="name">Sunday</field>
+          </record>
+
+          <record id="object1" model="days">
+            <field name="name">Monday</field>
+          </record>
+
+          <record id="object2" model="days">
+            <field name="name">Tuesday</field>
+
+          </record>
+
+          <record id="object3" model="days">
+            <field name="name">Wednesday</field>
+          </record>
+
+          <record id="object4" model="days">
+            <field name="name">Thursday</field>
+          </record>
+
+         <record id="object5" model="days">
+            <field name="name">Friday</field>
+          </record>
+
+         <record id="object6" model="days">
+            <field name="name">Saturday</field>
+          </record>
+
+    </data>
+</odoo>

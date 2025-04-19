@@ -1,0 +1,10 @@
+<odoo>
+<!--  <template id="report_saleorder_document_inherit_product_url" inherit_id="sale.report_saleorder_document">-->
+
+<!--    <xpath expr="//table[1]/thead/tr/th[1]" position="after">-->
+<!--      <th>Code</th>-->
+
+<!--    </xpath>-->
+<!--  </template>-->
+<!--    <td name="td_name"><td><a t-att-href="line.product_url"><span t-field="line.name"/></a></td></td>-->
+</odoo>

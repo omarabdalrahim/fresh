@@ -1,0 +1,61 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="bounce_penalites_loan_rule.list">
+      <field name="name">bounce_penalites_loan_rule list</field>
+      <field name="model">bounce_penalites_loan_rule.bounce_penalites_loan_rule</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="bounce_penalites_loan_rule.action_window">
+      <field name="name">bounce_penalites_loan_rule window</field>
+      <field name="res_model">bounce_penalites_loan_rule.bounce_penalites_loan_rule</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="bounce_penalites_loan_rule.action_server">
+      <field name="name">bounce_penalites_loan_rule server</field>
+      <field name="model_id" ref="model_bounce_penalites_loan_rule_bounce_penalites_loan_rule"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="bounce_penalites_loan_rule" id="bounce_penalites_loan_rule.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="bounce_penalites_loan_rule.menu_1" parent="bounce_penalites_loan_rule.menu_root"/>
+    <menuitem name="Menu 2" id="bounce_penalites_loan_rule.menu_2" parent="bounce_penalites_loan_rule.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="bounce_penalites_loan_rule.menu_1_list" parent="bounce_penalites_loan_rule.menu_1"
+              action="bounce_penalites_loan_rule.action_window"/>
+    <menuitem name="Server to list" id="bounce_penalites_loan_rule" parent="bounce_penalites_loan_rule.menu_2"
+              action="bounce_penalites_loan_rule.action_server"/>
+-->
+  </data>
+</odoo>

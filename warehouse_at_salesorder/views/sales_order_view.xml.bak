@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+	<record id="po_so_form2" model="ir.ui.view">
+    <field name="name">po_so_form</field>
+	<field name="model" >warehouse.sales</field>
+	<field name="arch" type="xml">  
+	   <form>
+	      <group>
+ 
+		  <field name="warehouse_id" required="1"/>
+		   </group>
+		   
+	   </form>
+	</field>
+	</record>
+    
+	</odoo>

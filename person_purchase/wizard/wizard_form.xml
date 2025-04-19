@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="wiz_competitors_view_person" model="ir.ui.view">
+		<field name="name">wiz_competitors_view_person</field>
+		<field name="model">person.data</field>
+		<field name="arch" type="xml">
+			<form>
+				  <sheet>
+
+				<group >
+					<field name="creation_date" required="1" />
+<!--					<field name="sale_order_id"/>-->
+					<field name="price_list" required="1"/>
+<!--					<field name="competitor_id" />-->
+				</group>
+
+				<footer>
+					<button name="check_report" string="Print" type="object" default_focus="1" class="oe_highlight" />
+					or
+					<button string="Cancel" class="oe_link" special="cancel" />
+				</footer>
+				  </sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_competitors_wizard_person" model="ir.actions.act_window">
+		<field name="name"> Competitors Report</field>
+		<field name="res_model">person.data</field>
+		<field name="type">ir.actions.act_window</field>
+
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="wiz_competitors_view_person"/>
+		<!--<field name="target">new</field>-->
+		<field name="target">inline</field>
+	</record>
+
+	 <menuitem id="menu_competitors_report_wizard_person"
+                  name="Purchase Daily Report"
+                  action="action_competitors_wizard_person"
+                  parent="person_purchase.person_purchase_root"
+                  sequence="3"
+	  groups="person_purchase.group_person_purchase_manager"/>
+
+</odoo>

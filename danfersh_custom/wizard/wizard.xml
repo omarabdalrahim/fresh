@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="multi_currency_wizard_sale_reprt_return" model="ir.ui.view">
+        <field name="name">multi_currency_wizard_sale_reprt_return</field>
+        <field name="model">sale.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="start_date"/>
+                    </group>
+                    <group>
+                        <field name="end_date"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="partner_id" widget="many2many_tags" string="العملاء"/>
+                    <field name="parent_id" widget="many2many_tags" string="لشركه الام"/>
+                </group>
+                <footer>
+                    <button name="print_muli_currency_report" string="Print" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_multi_action_sale_order_line_2" model="ir.actions.act_window">
+        <field name="name">تقرير المرتجع</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.wizard</field>
+
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="multi_currency_wizard_sale_reprt_return"/>
+        <field name="target">new</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="menu_sale_order_return" name="تقرير المرتجع" parent="sale.menu_sale_report"
+              action="action_multi_action_sale_order_line_2" sequence="500"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <!--     <menuitem id="menu_sale_order_line_report" name="Sales Stock report" parent="sale.menu_sale_report"-->
+    <!--               action="sale_order_line_report_action" sequence="3"/>-->
+</odoo>

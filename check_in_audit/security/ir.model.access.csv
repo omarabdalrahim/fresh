@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_audit_attendance,access_audit_attendance,model_audit_attendance,base.group_user,1,1,1,1
+access_audit_attendance_line,audit_attendance_line,model_audit_attendance_line,base.group_user,1,1,1,0

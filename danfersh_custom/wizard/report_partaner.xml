@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_partner_search_view_form" model="ir.ui.view">
+            <field name="name">res.partner.search.report</field>
+            <field name="model">res.partner.search</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                     <header>
+                            <button name="get_data" string="Print" type="object"
+                                    class="oe_highlight"/>
+                            <button string="Cancel" special="cancel"/>
+                        </header>
+                    <sheet>
+                        <group>
+
+                            <field name="date" required="1"/>
+                            <field name="partner_ids" widget="many2many_tags"/>
+                            <field name="result" readonly="1"/>
+
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="report_search_partner_sales_action" model="ir.actions.act_window">
+            <field name="name">Contact Search Sales</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.search</field>
+            <field name="view_mode">form</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_partner_search_order" name="Contact Search Sales"
+                  parent="sale.menu_sale_report" action="report_search_partner_sales_action" sequence="10"/>
+    </data>
+</odoo>

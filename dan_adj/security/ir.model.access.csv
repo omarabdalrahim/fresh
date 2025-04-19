@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_transfer_wizard,access_transfer_wizard,model_transfer_wizard,base.group_user,1,1,1,1
+access_branch,branch,model_branch,base.group_user,1,1,1,1
+access_audit_type,audit_type,model_audit_type,base.group_user,1,1,1,1
+access_division,division,model_division,base.group_user,1,1,1,1
+access_audit,audit,model_audit,base.group_user,1,1,1,1
+access_training,traning,model_training,base.group_user,1,1,1,1
+access_audit_line,audit_line,model_audit_line,base.group_user,1,1,1,1
+access_transfer_wizard,access_transfer_wizard,model_transfer_wizard,base.group_user,1,1,1,1
+access_day,access_day,model_days,base.group_user,1,0,0,0
+access_quality_type,access_quality_type,model_quality_type,base.group_user,1,1,1,1
+access_machine_type,access_machine_type,model_machine_type,base.group_user,1,1,1,1
+access_operation_type,access_operation_type,model_operation_type,base.group_user,1,1,1,1
+access_machine,access_machine,model_machine,base.group_user,1,1,1,1
+access_machine_dep,access_machine_dep,model_machine_dep,base.group_user,1,1,1,1

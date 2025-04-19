@@ -1,0 +1,113 @@
+<odoo>
+    <data>
+        <template id="report_category_product">
+            <t t-call="web.html_container">
+                <t t-foreach="categ_id_list" t-as="cat">
+                    <t t-call="web.external_layout">
+
+                        <div class="page">
+                            <t t-set="i" t-value="0"></t>
+                            <table class="table table-sm o_main_table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <strong></strong>
+                                        </th>
+                                        <th>
+                                            <strong>Description</strong>
+                                        </th>
+                                        <th>
+                                            <strong></strong>
+                                        </th>
+
+
+                                        <th>
+                                            <strong>Price</strong>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="product_list" t-as="pro">
+                                        <t t-if="cat==pro['categ_id']">
+                                            <t t-set="i" t-value="i+1"></t>
+                                            <tr>
+                                                <td>
+                                                    <span t-esc="i"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="pro['product_id']"/>
+                                                </td>
+                                                <td align="center">
+                                                    <t t-if="pro['pro_id'].image_1920">
+                                                        <img t-att-src="image_data_uri(pro['pro_id'].image_1920)"
+                                                             width="25px" height="30px"/>
+                                                    </t>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="pro['price_unit']"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+
+                </t>
+            </t>
+            <t t-call="web.external_layout">
+
+                <div class="page">
+                    <t t-set="i" t-value="0"></t>
+                    <table class="table table-sm o_main_table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <strong></strong>
+                                </th>
+                                <th>
+                                    <strong>Description</strong>
+                                </th>
+                                <th>
+                                    <strong></strong>
+                                </th>
+
+
+                                <th>
+                                    <strong>Price</strong>
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="product_list_no" t-as="pro">
+
+                                <t t-set="i" t-value="i+1"></t>
+                                <tr>
+                                    <td>
+                                        <span t-esc="i"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="pro['product_id']"/>
+                                    </td>
+                                    <td align="center">
+                                        <t t-if="pro['pro_id'].image_1920">
+                                            <img t-att-src="image_data_uri(pro['pro_id'].image_1920)" width="25px"
+                                                 height="30px"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span t-esc="pro['price_unit']"/>
+                                    </td>
+                                </tr>
+
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

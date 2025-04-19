@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- Translatable template -->
+ 
+
+<template id="saleorder_sum_report">
+        
+          <t t-call="web.html_container">
+
+
+		   <t t-call="web.external_layout">
+		       		     
+
+                <div class="page">
+ 
+				    <h2 style="text-align:center;color:grey">Customer Details <span t-esc="sales_rep"/></h2>
+                      <table align="right" class="table table-bordered">
+                      <thead>
+						<tr style="color:blue">
+						    <th>seq</th>
+							<th>Customer</th>
+							<th>Address</th>
+							<th>Phone</th>
+							<th>Total amount</th>
+						  </tr>
+						  </thead> 
+					 
+					
+                   <tbody>
+				    <t t-set="i" t-value="1"/>
+						  <t t-foreach="cst" t-as="r">
+                          <tr>
+						      <td >
+														<span t-esc="i"/>
+													</td>
+						      <td >
+														<t t-esc="r['name']"/>
+													</td>
+													 <td>
+														<t t-esc="r['address']"/>
+													</td>
+													<td>
+														<t t-esc="r['phone']"/>
+													</td>
+													<td>
+														<t t-esc="r['total']"/>
+													</td>
+						  </tr>
+						  <t t-set="i" t-value="i+1"/>
+						  </t>
+						  </tbody>
+				   </table>
+					 
+                </div>
+				 
+            </t>
+		 <t t-call="web.external_layout">
+		       		     
+
+                <div class="page">
+                      <t t-set="j" t-value="1"/>
+				    <h2 style="text-align:center;color:grey">Sale Sum Report  <span t-esc="sales_rep"/></h2>
+                      <table align="right" class="table table-bordered">
+                      <thead>
+						<tr style="color:blue">
+						    <th>seq</th>
+							<th>Product</th>
+							<th>Quantity</th>
+							<th>SO</th>
+						  </tr>
+						  </thead> 
+					 
+					
+                   <tbody>
+						  <t t-foreach="list_qty" t-as="o">
+                          <tr>
+						    <td >
+														<span t-esc="j"/>
+													</td>
+						      <td >
+														<t t-esc="o['product']"/>
+													</td>
+													 <td>
+														<t t-esc="o['qty']"/>
+													</td>
+													<td>
+														<t t-esc="o['so']"/>
+													</td>
+						  </tr>
+						  <t t-set="j" t-value="j+1"/>
+						  </t>
+						  </tbody>
+				   </table>
+					 
+                </div>
+				 
+            </t>
+			
+			</t>
+    </template>
+	
+        
+</odoo>

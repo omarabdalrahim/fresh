@@ -1,165 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="group_change_password_contact" model="res.groups">
-        <field name="name">Change password Contact</field>
-    </record>
-    <record id="group_change_product" model="res.groups">
-        <field name="name">Change Products Contact</field>
-    </record>
-    <!-- Inherit Form View to Modify it -->
-    <record id="view_partner_form_change" model="ir.ui.view">
-        <field name="name">view_partner_form_change</field>
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
-        <field name="arch" type="xml">
+    <data>
 
-            <xpath expr="//sheet" position="before">
-                <header>
-                    <button name="change_pass" string="Change" type="object"
-                            groups="danfersh_custom.group_change_password_contact"/>
-                    <button name="change_products" string="Change Products" type="object"
-                            groups="danfersh_custom.group_change_product"/>
-                </header>
-                <!-- Add your fields or attributes here -->
-            </xpath>
+        <record id="group_change_password_contact" model="res.groups">
+            <field name="name">Change password Contact</field>
+        </record>
+        <record id="group_change_product" model="res.groups">
+            <field name="name">Change Products Contact</field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_partner_form_change" model="ir.ui.view">
+            <field name="name">view_partner_form_change</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
 
-        </field>
-    </record>
-    <record id="change_password" model="ir.ui.view">
-        <field name="name">change_invoice_asset</field>
-        <field name="model">res.partner</field>
-        <field name="priority">1000</field>
-        <field name="arch" type="xml">
-            <form string="_form">
-                <sheet>
-                    <group>
-                        <!--                        <field name="x_password" required="1" password="True"/>-->
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="change_pass" string="Change" type="object"
+                                groups="danfersh_custom.group_change_password_contact"/>
+                        <button name="change_products" string="Change Products" type="object"
+                                groups="danfersh_custom.group_change_product"/>
+                    </header>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
 
-                    </group>
-                    <footer>
-                        <button name="change_pass_confirm" string="Change" type="object" default_focus="1"
-                                class="oe_highlight"
-                                data-hotkey="q"/>
-                        <button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="z"/>
-                    </footer>
-                </sheet>
-            </form>
-        </field>
-    </record>
-    <record id="change_product_users" model="ir.ui.view">
-        <field name="name">change_product_users</field>
-        <field name="model">res.partner</field>
-        <field name="priority">1000</field>
-        <field name="arch" type="xml">
-            <form string="_form">
-                <sheet>
-                    <group>
-                        <!--                        <field name="x_product_ids" required="1" widget="many2many_tags"/>-->
+            </field>
+        </record>
+        <record id="change_password" model="ir.ui.view">
+            <field name="name">change_invoice_asset</field>
+            <field name="model">res.partner</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                    <sheet>
+                        <group>
+                            <!--                        <field name="x_password" required="1" password="True"/>-->
 
-                    </group>
-                    <footer>
-                        <button name="change_product_confirm" string="Change" type="object" default_focus="1"
-                                class="oe_highlight"
-                                data-hotkey="q"/>
-                        <button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="z"/>
-                    </footer>
-                </sheet>
-            </form>
-        </field>
-    </record>
-    <!-- Inherit Form View to Modify it -->
-    <record id="view_picking_form_signutare" model="ir.ui.view">
-        <field name="name">view_picking_form_signutare</field>
-        <field name="model">stock.picking</field>
-        <field name="inherit_id" ref="stock.view_picking_form"/>
-        <field name="arch" type="xml">
+                        </group>
+                        <footer>
+                            <button name="change_pass_confirm" string="Change" type="object" default_focus="1"
+                                    class="oe_highlight"
+                                    data-hotkey="q"/>
+                            <button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="z"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="change_product_users" model="ir.ui.view">
+            <field name="name">change_product_users</field>
+            <field name="model">res.partner</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                    <sheet>
+                        <group>
+                            <!--                        <field name="x_product_ids" required="1" widget="many2many_tags"/>-->
 
-            <xpath expr="//widget[@name='signature']" position="replace">
-                <widget name="signature" string="Sign" highlight="1"
+                        </group>
+                        <footer>
+                            <button name="change_product_confirm" string="Change" type="object" default_focus="1"
+                                    class="oe_highlight"
+                                    data-hotkey="q"/>
+                            <button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="z"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_picking_form_signutare" model="ir.ui.view">
+            <field name="name">view_picking_form_signutare</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
 
-                        full_name="partner_id" groups="stock.group_stock_sign_delivery"/>
-            </xpath>
+                <xpath expr="//widget[@name='signature']" position="replace">
+                    <widget name="signature" string="Sign" highlight="1"
 
-        </field>
-    </record>
+                            full_name="partner_id" groups="stock.group_stock_sign_delivery"/>
+                </xpath>
 
-    <!-- Inherit Form View to Modify it -->
-    <record id="view_res_partner_filter_journal" model="ir.ui.view">
-        <field name="name">view_res_partner_filter_journal</field>
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_res_partner_filter"/>
-        <field name="arch" type="xml">
+            </field>
+        </record>
 
-            <xpath expr="//filter[@name='salesperson']" position="after">
-                <filter name="x_journal_id" string="Journal" domain="[]" context="{'group_by' : 'x_journal_id'}"/>
-                <filter name="x_journal_id_purchase" string="Journal Purchase" domain="[]"
-                        context="{'group_by' : 'x_journal_id_purchase'}"/>
-                <!-- Add your fields or attributes here -->
-            </xpath>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_res_partner_filter_journal" model="ir.ui.view">
+            <field name="name">view_res_partner_filter_journal</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
 
-        </field>
-    </record>
+                <xpath expr="//filter[@name='salesperson']" position="after">
+                    <filter name="x_journal_id" string="Journal" domain="[]" context="{'group_by' : 'x_journal_id'}"/>
+                    <filter name="x_journal_id_purchase" string="Journal Purchase" domain="[]"
+                            context="{'group_by' : 'x_journal_id_purchase'}"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
 
-    <!-- Inherit Form View to Modify it -->
-    <record id="quality_point_view_form_2" model="ir.ui.view">
-        <field name="name">quality_point_view_form_2</field>
-        <field name="model">quality.point</field>
-        <field name="inherit_id" ref="quality.quality_point_view_form"/>
-        <field name="arch" type="xml">
+            </field>
+        </record>
 
-            <!--            <xpath expr="//form/div[@class='oe_chatter']" position="replace">-->
-            <!--                <div class="oe_chatter">-->
-            <!--                    <field name="message_follower_ids" widget="mail_followers"/>-->
-            <!--                    <field name="activity_ids" widget="mail_activity"/>-->
-            <!--                    <field name="message_ids" widget="mail_thread"/>-->
-            <!--                </div>-->
-            <!--                &lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
-            <!--            </xpath>-->
+        <!-- Inherit Form View to Modify it -->
+        <record id="quality_point_view_form_2" model="ir.ui.view">
+            <field name="name">quality_point_view_form_2</field>
+            <field name="model">quality.point</field>
+            <field name="inherit_id" ref="quality.quality_point_view_form"/>
+            <field name="arch" type="xml">
 
-        </field>
-    </record>
-    <record id="view_order_tree_total_invoce_payment" model="ir.ui.view">
-        <field name="name">view_order_tree_total_invoce_payment</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_tree"/>
-        <field name="arch" type="xml">
+                <xpath expr="//sheet" position="after">
+                        <chatter reload_on_follower="True"/>
+                        <!-- Add your fields or attributes here -->
+                </xpath>
 
-            <xpath expr="//field[last()]" position="after">
-                <field name="x_journal_id" optional="show"/>
-                <field name="totall_actual_remaining" optional="show"/>
-                <field name="totall_inv_delivery_remaining" optional="show"/>
-                <field name="totall_payment_remaining" optional="show"/>
-                <field name="totall_inv_prec" optional="show"/>
-                <field name="totall_payment_prec" optional="show"/>
-                <field name="total_payment_dif" optional="show"/>
-                <field name="total_inv_dif" optional="show"/>
-                <field name="total_payment_return" optional="show"/>
-                <field name="total_amount_invoice_return" optional="show"/>
-                <field name="total_amount_invoice" optional="show"/>
-                <field name="total_payment" optional="show"/>
-                <field name="transfer_state" optional="show" invisible="1"/>
-                <field name="transfer_state_filter" optional="show"/>
-                <field name="invoice_state" optional="show" force_save="1"/>
-                <field name="payment_state" optional="show" invisible="1"/>
-                <field name="payment_state_filter" optional="show"/>
+            </field>
+        </record>
+        <record id="view_order_tree_total_invoce_payment" model="ir.ui.view">
+            <field name="name">view_order_tree_total_invoce_payment</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
 
-                <!-- Add new fields here -->
-            </xpath>
+                <xpath expr="//field[last()]" position="after">
+                    <field name="x_journal_id" optional="show"/>
+                    <field name="totall_actual_remaining" optional="show"/>
+                    <field name="totall_inv_delivery_remaining" optional="show"/>
+                    <field name="totall_payment_remaining" optional="show"/>
+                    <field name="totall_inv_prec" optional="show"/>
+                    <field name="totall_payment_prec" optional="show"/>
+                    <field name="total_payment_dif" optional="show"/>
+                    <field name="total_inv_dif" optional="show"/>
+                    <field name="total_payment_return" optional="show"/>
+                    <field name="total_amount_invoice_return" optional="show"/>
+                    <field name="total_amount_invoice" optional="show"/>
+                    <field name="total_payment" optional="show"/>
+                    <field name="transfer_state" optional="show" invisible="1"/>
+                    <field name="transfer_state_filter" optional="show"/>
+                    <field name="invoice_state" optional="show" force_save="1"/>
+                    <field name="payment_state" optional="show" invisible="1"/>
+                    <field name="payment_state_filter" optional="show"/>
 
-        </field>
-    </record>
+                    <!-- Add new fields here -->
+                </xpath>
 
-    <record id="view_quotation_tree_invoce_payment" model="ir.ui.view">
-        <field name="name">view_quotation_tree_invoce_payment</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_quotation_tree"/>
-        <field name="arch" type="xml">
+            </field>
+        </record>
 
-            <xpath expr="//field[last()]" position="after">
-                <field name="total_amount_invoice"/>
-                <field name="total_payment"/>
-                <!-- Add new fields here -->
-            </xpath>
+        <record id="view_quotation_tree_invoce_payment" model="ir.ui.view">
+            <field name="name">view_quotation_tree_invoce_payment</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
 
-        </field>
-    </record>
+                <xpath expr="//field[last()]" position="after">
+                    <field name="total_amount_invoice"/>
+                    <field name="total_payment"/>
+                    <!-- Add new fields here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
 </odoo>

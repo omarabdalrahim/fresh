@@ -16,7 +16,7 @@ class Partner(models.Model):
 
 class Sale(models.Model):
     _inherit = 'sale.order'
-    # delivery_date= fields.Date('Delivery Date')
+    delivery_date= fields.Date('Delivery Date')
     delivery_comment= fields.Text('Delivery Comment')
     @api.model
     def create(self,vals):

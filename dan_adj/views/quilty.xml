@@ -28,27 +28,27 @@
 
             <xpath expr="//button[@name='do_fail']" position="replace">
                 <button name="fail_reason" type="object" class="btn-primary"
-                        attrs="{'invisible': [('quality_state', '!=', 'none')]}" string="Fail" data-hotkey="w"/>
+                        invisible="quality_state != 'none'" string="Fail" data-hotkey="w"/>
 
             </xpath>
             <field name="measure_on" position="after">
-                <field name="reason" attrs="{'invisible':[('quality_state','!=','fail')]}"/>
+                <field name="reason" invisible="quality_state !='fail'"/>
             </field>
 
             <page name="notes" position="before">
-                <page name="product_info" string="Product Info" attrs="{'invisible':[('product_id','=',False)]}">
-                   <group>
-                    <field name="qty"  readonly="1" force_save="1"/>
+                <page name="product_info" string="Product Info" invisible="product_id == False">
+                    <group>
+                        <field name="qty" readonly="1" force_save="1"/>
                     </group>
-                              <field name="move_raw_ids" readonly="1" force_save="1">
-                                  <tree>
-                                      <field name="product_id"/>
-                                      <field name="location_id"/>
-                                      <field name="product_uom_qty"/>
-                                      <field name="product_uom"/>
-                                      <field name="quantity_done"/>
-                                  </tree>
-                                 </field>
+                    <field name="move_raw_ids" readonly="1" force_save="1">
+                        <list>
+                            <field name="product_id"/>
+                            <field name="location_id"/>
+                            <field name="product_uom_qty"/>
+                            <field name="product_uom"/>
+                            <!--                                      <field name="quantity_done"/>-->
+                        </list>
+                    </field>
                 </page>
             </page>
 
@@ -115,11 +115,11 @@
             </div>
             <xpath expr="//field[@name='user_id']" position='after'>
                 <field name="days_ids" widget="many2many_tags"
-                       attrs="{'invisible': [('measure_frequency_unit', '!=', 'p_days')]}"/>
+                       invisible="measure_frequency_unit != 'p_days'"/>
                 <field name="many_user_id" widget="many2many_tags"/>
                 <field name="fail_many_user_id" widget="many2many_tags"/>
-                <field name="auto_check_point_day" attrs="{'invisible': [('measure_frequency_unit', '!=', 'p_days')]}"/>
-                <field name="auto_check_point" attrs="{'invisible': [('measure_frequency_unit', '=', 'p_days')]}"/>
+                <field name="auto_check_point_day" invisible="measure_frequency_unit !='p_days'"/>
+                <field name="auto_check_point" invisible="measure_frequency_unit =='p_days'"/>
                 <field name="next_create_time" invisible="0"/>
                 <field name="last_create_time" invisible="1"/>
                 <!--                <button name="corn_create_check_point" string="test"/>-->
@@ -132,7 +132,7 @@
                 <field name="job_position_id" widget="many2many_tags"/>
                 <field name="add_related_points" invisible="1"/>
                 <field name="quality_control_related_ids" widget="many2many_tags"
-                       attrs="{'invisible': [('add_related_points','=',False)]}"/>
+                       invisible="add_related_points == False"/>
                 <field name="branch_id"/>
                 <field name="division_ids" widget="many2many_tags"/>
                 <field name="tags" widget="many2many_tags"/>
@@ -161,80 +161,79 @@
     </record>
 
 
+<!--    <record id="view_config_setting" model="ir.ui.view">-->
+<!--        <field name="name">res.config.settings</field>-->
+<!--        <field name="model">res.config.settings</field>-->
+<!--        <field name="inherit_id" ref="mrp.res_config_settings_view_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash;            omar&ndash;&gt;-->
+<!--            &lt;!&ndash;            <xpath expr="//div[@id='work_order']" position="after">&ndash;&gt;-->
+<!--            &lt;!&ndash;                <div class="col-lg-6 col-12 o_setting_box" id="related_control_point">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <div class="o_setting_left_pane">&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <field name="add_related_control_point"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <div class="o_setting_right_pane" id="workorder_settings">&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <label for="add_related_control_point" string="Add Quality control points"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <div class="text-muted">&ndash;&gt;-->
+<!--            &lt;!&ndash;                            Add Quality Point Related Field in Quality control points&ndash;&gt;-->
+<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
 
-
-    <record id="view_config_setting" model="ir.ui.view">
-        <field name="name">res.config.settings</field>
-        <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="mrp.res_config_settings_view_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//div[@id='work_order']" position="after">
-                <div class="col-lg-6 col-12 o_setting_box" id="related_control_point">
-                    <div class="o_setting_left_pane">
-                        <field name="add_related_control_point"/>
-                    </div>
-                    <div class="o_setting_right_pane" id="workorder_settings">
-                        <label for="add_related_control_point" string="Add Quality control points"/>
-                        <div class="text-muted">
-                            Add Quality Point Related Field in Quality control points
-                        </div>
-                    </div>
-                </div>
-
-            </xpath>
-        </field>
-    </record>
+<!--            &lt;!&ndash;            </xpath>&ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
 
     <!--    quality type action and menuitem-->
     <record id="quality_type_action" model="ir.actions.act_window">
         <field name="name">Quality Type</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">quality.type</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_quality_type" name="Quality Type"
               parent="quality_control.menu_quality_configuration"
               action="quality_type_action"/>
 
-     <record id="machine_action" model="ir.actions.act_window">
+    <record id="machine_action" model="ir.actions.act_window">
         <field name="name">المعدات</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">machine</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_machine" name="المعدات"
               parent="maintenance.menu_maintenance_configuration"
               action="machine_action"/>
 
-     <record id="machine_dep_action" model="ir.actions.act_window">
+    <record id="machine_dep_action" model="ir.actions.act_window">
         <field name="name">اقسام المكنه</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">machine.dep</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_machine_dep" name="اقسام المكنه"
               parent="maintenance.menu_maintenance_configuration"
               action="machine_dep_action"/>
 
-     <record id="machine_type_action" model="ir.actions.act_window">
+    <record id="machine_type_action" model="ir.actions.act_window">
         <field name="name">نوع المعده</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">machine.type</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_machine_type" name="نوع المعده"
               parent="maintenance.menu_maintenance_configuration"
               action="machine_type_action"/>
 
-     <record id="operation_type_action" model="ir.actions.act_window">
+    <record id="operation_type_action" model="ir.actions.act_window">
         <field name="name">نوع العملية</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">operation.type</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_operation_type" name="نوع العملية"

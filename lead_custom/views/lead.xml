@@ -16,11 +16,11 @@
 
                 </button>
             </xpath>
-            <!--            omar-->
-            <!--		<xpath expr="//header/button[last()]" position="after">-->
-            <!--            <button class="oe_stat_button" name="create_task" string="Create Tasks" type="object"/>-->
-            <!--            <button class="oe_stat_button" name="create_ticket" string="Create Tickets" type="object"/>-->
-            <!--        </xpath>-->
+
+            <xpath expr="//header/button[last()]" position="after">
+                <button class="oe_stat_button" name="create_task" string="Create Tasks" type="object"/>
+                <button class="oe_stat_button" name="create_ticket" string="Create Tickets" type="object"/>
+            </xpath>
             <xpath expr="//button[@name='%(crm_helpdesk.crm_lead_convert2ticket_action)d']" position="replace">
                 <button class="oe_stat_button" type="action" name="%(crm_helpdesk.crm_lead_convert2ticket_action)d"
                         icon="fa-ticket" help="Convert to Ticket" string="Convert to Ticket"/>
@@ -35,33 +35,33 @@
         <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
             <xpath expr="//div[@name='button_box']" position="inside">
-<!--                <button name="action_views_sales" string="Sales Order" type="object" class="oe_stat_button"-->
-<!--                        invisible="x_count_sale == 0 ">-->
-<!--                                        -->
-<!--                                        <field name="x_count_sale"/>-->
+                <!--                <button name="action_views_sales" string="Sales Order" type="object" class="oe_stat_button"-->
+                <!--                        invisible="x_count_sale == 0 ">-->
+                <!--                                        -->
+                <!--                                        <field name="x_count_sale"/>-->
 
-<!--                </button>-->
-<!--                <button name="action_views_post" string="Post" type="object" class="oe_stat_button"-->
-<!--                        invisible=" x_count_post == 0">-->
-<!--                    <field name="x_count_post"/>-->
+                <!--                </button>-->
+                <!--                <button name="action_views_post" string="Post" type="object" class="oe_stat_button"-->
+                <!--                        invisible=" x_count_post == 0">-->
+                <!--                    <field name="x_count_post"/>-->
 
-<!--                </button>-->
+                <!--                </button>-->
 
-<!--                <button name="action_views_campaigns" string="Campaigns" type="object" class="oe_stat_button"-->
-<!--                        invisible="x_count_companing == 0">-->
-<!--                    <field name="x_count_companing"/>-->
+                <!--                <button name="action_views_campaigns" string="Campaigns" type="object" class="oe_stat_button"-->
+                <!--                        invisible="x_count_companing == 0">-->
+                <!--                    <field name="x_count_companing"/>-->
 
-<!--                </button>-->
+                <!--                </button>-->
 
             </xpath>
-            <!--            omar-->
-            <!--		<xpath expr="//header/button[last()]" position="after">-->
-            <!--            <button class="oe_stat_button" name="action_create_sales" string="Create Sales Order" type="object"/>-->
-            <!--&lt;!&ndash;               <button class="oe_stat_button" name="action_create_post" string="Create Post" type="object"/>&ndash;&gt;-->
-            <!--            <button class="oe_stat_button" name="action_create_campaigns" string="Create Campaigns" type="object"/>-->
+
+            <xpath expr="//header" position="inside">
+                <button  name="action_create_sales" string="Create Sales Order" type="object"/>
+                <!--               <button class="oe_stat_button" name="action_create_post" string="Create Post" type="object"/>-->
+                <button  name="action_create_campaigns" string="Create Campaigns" type="object"/>
 
 
-            <!--        </xpath>-->
+            </xpath>
         </field>
     </record>
 

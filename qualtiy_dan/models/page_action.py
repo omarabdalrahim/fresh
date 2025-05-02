@@ -18,7 +18,7 @@ class ActionPage(models.Model):
                                  copy=False, required=True,
                                  default=lambda self: self.env.company, )
     logo = fields.Binary("Logo", related="company_id.logo")
-    stamp = fields.Binary("Stamp", related="company_id.x_stamp")
+    # stamp = fields.Binary("Stamp", related="company_id.x_stamp")
 
     editor_name = fields.Many2one("hr.employee", "اعداد")
     revision_name = fields.Many2one("hr.employee", "مراجع")

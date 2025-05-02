@@ -47,8 +47,8 @@
     'data': [
         # 'security/management_contract_security.xml',
         # 'security/ir.model.access.csv',
-        # 'views/management_contract_views.xml',
-        # 'data/contract_data.xml',
+        'views/management_contract_views.xml',
+        'data/contract_data.xml',
     ],
     'images': [
         'static/description/screenshot_management.png'

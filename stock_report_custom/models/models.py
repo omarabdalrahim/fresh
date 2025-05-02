@@ -3,7 +3,8 @@
 from odoo import models, fields, api
 
 class stock_report_custom(models.Model):
-    _inherit ='stock.report'
+    _inherit ='stock.lot.report'
+
     x_sales_person = fields.Many2one("res.users",string="Sales Person")
     sales_person = fields.Many2one("res.users",string="Sales Person")
 

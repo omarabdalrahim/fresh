@@ -32,14 +32,14 @@
             <field name="name">vistor_view_tree</field>
             <field name="model">visitor.question</field>
             <field name="arch" type="xml">
-                <tree string="_tree">
+                <list string="_tree">
                     <field name="name"/>
                     <field name="vistor_id"/>
                     <field name="purpose"/>
                     <field name="other_person"/>
                     <field name="date_time"/>
 
-                </tree>
+                </list>
             </field>
         </record>
         <record id="vistor_view_form" model="ir.ui.view">
@@ -71,11 +71,11 @@
 
                         </group>
                         <field name="line_ids" options="{  'no_create' : True}">
-                            <tree editable="top" create="false">
+                            <list editable="top" create="false">
                                 <field name="name"/>
                                 <field name="check"/>
                                 <field name="no"/>
-                            </tree>
+                            </list>
                         </field>
                         <br></br>
                         <br></br>
@@ -97,11 +97,8 @@
                         </group>
 
                     </sheet>
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids"/>
-                        <field name="activity_ids"/>
-                        <field name="message_ids"/>
-                    </div>
+                    <chatter reload_on_follower="True"/>
+
                 </form>
             </field>
         </record>
@@ -109,7 +106,7 @@
             <field name="name">استبيان الزوار</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">visitor.question</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
         <!-- This Menu Item must have a parent and an action -->
         <menuitem id="menu_vistor_w" name="استبيان الزوار" parent="quality_control.menu_quality_configuration"

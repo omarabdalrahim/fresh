@@ -6,8 +6,7 @@
     'description': """
 """,
     'depends': ['base', 'hr','hr_attendance',
-                # omar
-                # 'dan_adj'
+                'dan_adj'
                 ],
     'data': [
         'security/ir.model.access.csv',

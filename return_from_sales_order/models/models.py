@@ -23,6 +23,8 @@ class change_product(models.TransientModel):
             self.product_uom = self.product_id.uom_id.id
 
 
+
+
 class ReturnPicking(models.TransientModel):
     _inherit = 'stock.return.picking'
     is_sales_order = fields.Boolean()

@@ -25,8 +25,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        # omar
-        # 'views/views.xml',
+        'views/views.xml',
         'views/templates.xml',
         'views/report_category_product.xml',
     ],

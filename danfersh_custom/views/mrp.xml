@@ -8,14 +8,12 @@
             <field name="model">mrp.production</field>
             <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
             <field name="arch" type="xml">
-f
-
                 <xpath expr="//button[@name='button_unbuild']" position="after">
                     <button name="create_quality" type="object" string="Create Quality"/>
                 </xpath>
                 <xpath expr="//div[@name='button_box']" position="inside">
                     <button class="oe_stat_button" name="action_view_mrp_production_sources" type="object"
-                            icon="fa-wrench" attrs="{'invisible': [('count_qualtiy', '=', 0)]}">
+                            icon="fa-wrench" invisible = "count_qualtiy == 0">
                         <div class="o_field_widget o_stat_info">
                             <span class="o_stat_value">
                                 <field name="count_qualtiy"/>

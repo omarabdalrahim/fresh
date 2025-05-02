@@ -15,16 +15,14 @@
                 report_type="qweb-pdf"
                 name="purchase_category_printing.report_category_product"
                 file="purchase_category_printing.report_category_product"/>
+
         <record id="print_purchase_view_form" model="ir.ui.view">
             <field name="name">print_purchase_view_form</field>
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
-                <field name="company_id" position="after">
+                <xpath expr="//sheet/group/group/field[@name='company_id']" position="after">
                     <field name='discount_print'/>
-                </field>
-                <xpath expr="//header/button[last()]" position="after">
-                    <button name="%(purchase_category_printing)d" string="Print" type="action"/>
                 </xpath>
             </field>
         </record>

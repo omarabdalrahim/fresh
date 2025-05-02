@@ -1,13 +1,13 @@
 <odoo>
-   <record id="model_sale_order_action_credit_note" model="ir.actions.server">
-            <field name="name">اشعار دائن </field>
-            <field name="model_id" ref="sale.model_sale_order"/>
-            <field name="binding_model_id" ref="sale.model_sale_order"/>
-<!--            <field name="binding_view_types">form,list</field>-->
-            <field name="state">code</field>
-          <field name="code">action = records.action_credit_note_view()</field>
+    <record id="model_sale_order_action_credit_note" model="ir.actions.server">
+        <field name="name">اشعار دائن</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <!--            <field name="binding_view_types">form,list</field>-->
+        <field name="state">code</field>
+        <field name="code">action = records.action_credit_note_view()</field>
 
-        </record>
+    </record>
     <!-- Inherit Form View to Modify it -->
     <record id="view_order_form_credit_note" model="ir.ui.view">
         <field name="name">view_order_form_credit_note</field>
@@ -17,18 +17,19 @@
         <field name="arch" type="xml">
 
             <xpath expr="//sheet/div[@name='button_box']" position="inside">
-                 <button name="preview_credit_note" type="object" class="oe_stat_button"
-                         invisible="x_count_credit_note == 0"
-                         icon="fa-globe icon">
-                           <field name="x_count_credit_note"/>  Credit Note
-                 </button>
+                <button name="preview_credit_note" type="object" class="oe_stat_button"
+                        invisible="x_count_credit_note == 0"
+                        icon="fa-globe icon">
+                    <field name="x_count_credit_note"/>
+                    Credit Note
+                </button>
                 <!-- Add your fields or attributes here -->
             </xpath>
 
         </field>
     </record>
-    
-    
+
+
     <record id="sale_credit_view_form_2" model="ir.ui.view">
         <field name="name">sale_credit_view_form</field>
         <field name="model">sale.order.wizard</field>
@@ -39,10 +40,10 @@
                     <div>
                         هل انت متاكد من انشاء مرتجع
                     </div>
-                      <footer>
-			    <button string='Confirm' name='action_credit_note' type='object' class='btn-primary' />
-			    <button string='Cancel' class='btn-default' special="cancel"/>
-	        </footer>
+                    <footer>
+                        <button string='Confirm' name='action_credit_note' type='object' class='btn-primary'/>
+                        <button string='Cancel' class='btn-default' special="cancel"/>
+                    </footer>
                 </sheet>
             </form>
         </field>

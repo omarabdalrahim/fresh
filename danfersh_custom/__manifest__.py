@@ -39,9 +39,9 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
-        'views/templated-stock.xml',
+         'views/views.xml',
+         'views/templates.xml',
+         'views/templated-stock.xml',
         'wizard/wizard.xml',
         'wizard/report_partaner.xml',
         'wizard/template.xml',

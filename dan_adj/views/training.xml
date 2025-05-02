@@ -24,7 +24,7 @@
                         <group>
                             <field name="control_ids"
                                    widget="many2many_tags"/>
-                            <field name="alert_ids" attrs="{'invisible': [('type', '!=', 'b')]}"
+                            <field name="alert_ids" invisible="type != 'b'"
                                    widget="many2many_tags"/>
                             <field name="check_ids" widget="many2many_tags"/>
                             <field name="notes"/>
@@ -46,34 +46,31 @@
                                 </group>
                             </group>
                         </page>
-                         <page string="تعليمات" name="instructions" attrs="{'invisible': [('type', '!=', 'a')]}">
-                            <field name="control_note" />
+                        <page string="تعليمات" name="instructions" invisible="type!='a'">
+                            <field name="control_note"/>
                         </page>
-                         <page string="رسائل في حالة الفشل" name="message" attrs="{'invisible': [('type', '!=', 'a')]}">
-                            <field name="control_message"  />
+                        <page string="رسائل في حالة الفشل" name="message" invisible="type != 'a'">
+                            <field name="control_message"/>
                         </page>
-                        <page string="ملاحظات" name="Notes" attrs="{'invisible': [('type', '!=', 'a')]}">
-                            <field name="control_reason" />
+                        <page string="ملاحظات" name="Notes" invisible="type != 'a'">
+                            <field name="control_reason"/>
                         </page>
 
-                          <page string="الوصف"  attrs="{'invisible': [('type', '!=', 'b')]}">
-                            <field name="alert_desc" />
+                        <page string="الوصف" invisible="type != 'b'">
+                            <field name="alert_desc"/>
                         </page>
-                         <page string="اجرائات تصحيحية"  attrs="{'invisible': [('type', '!=', 'b')]}">
-                            <field name="alert_corrective"  />
+                        <page string="اجرائات تصحيحية" invisible="type !='b'">
+                            <field name="alert_corrective"/>
                         </page>
-                        <page string="اجرائات وقائية"  attrs="{'invisible': [('type', '!=', 'b')]}">
-                            <field name="alert_preve" />
+                        <page string="اجرائات وقائية" invisible="type != 'b'">
+                            <field name="alert_preve"/>
                         </page>
 
                     </notebook>
 
                 </sheet>
-                  <div class="oe_chatter">
-                        <field name="message_follower_ids" groups="base.group_user"/>
-                        <field name="activity_ids"/>
-                        <field name="message_ids"/>
-                    </div>
+                <chatter reload_on_follower="True"/>
+
             </form>
         </field>
     </record>
@@ -83,7 +80,7 @@
         <field name="name">تدريب</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">training</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 

@@ -9,13 +9,13 @@
             <field name="arch" type="xml">
 
 
-                <xpath expr="//field[@name='move_id']" position="after">
+                <xpath expr="//field[@name='paid_date']" position="after">
                     <field name="payment_move_id" readonly="1"/>
                 </xpath>
                 <xpath expr="//button[@name='action_print_payslip']" position="after">
                     <button string="Sign" name="confirm_print" type="object"/>
 
-                    <button string="Register Payment" name="action_register_payment" type="object" states="done"/>
+                    <button string="Register Payment" name="action_register_payment" type="object"  invisible = "state == 'done'"/>
 
                     <!-- Add your fields or attributes here -->
                 </xpath>
@@ -51,7 +51,7 @@
                 <form string="_form">
                     <sheet>
                         <group>
-                            <field name="x_sign" required="1" widget="signature"/>
+<!--                            <field name="x_sign" required="1" widget="signature"/>-->
 
                         </group>
                     </sheet>

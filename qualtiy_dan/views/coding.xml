@@ -30,11 +30,11 @@
             <field name="name">action_codeing_view_tree</field>
             <field name="model">action.coding</field>
             <field name="arch" type="xml">
-                <tree string="_tree">
+                <list string="_tree">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="name_arabic"/>
-                </tree>
+                </list>
             </field>
         </record>
         <record id="action_codeing_view_form" model="ir.ui.view">
@@ -70,11 +70,11 @@
             <field name="name">model_codeing_view_tree</field>
             <field name="model">model.coding</field>
             <field name="arch" type="xml">
-                <tree string="_tree">
+                <list string="_tree">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="coding_id"/>
-                </tree>
+                </list>
             </field>
         </record>
         <record id="model_codeing_view_form" model="ir.ui.view">
@@ -109,11 +109,11 @@
             <field name="name">model_codeing_view_tree</field>
             <field name="model">model.instruction</field>
             <field name="arch" type="xml">
-                <tree string="_tree">
+                <list string="_tree">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="coding_id"/>
-                </tree>
+                </list>
             </field>
         </record>
         <record id="model_instruction_view_form" model="ir.ui.view">
